@@ -4,7 +4,23 @@
 ?>
 
 <!---- POPUP MENUES -->
-
+<style>
+    .table-fixed thead {
+  width: 97%;
+}
+.table-fixed tbody {
+  height: 230px;
+  overflow-y: auto;
+  width: 100%;
+}
+.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+  display: block;
+}
+.table-fixed tbody td, .table-fixed thead > tr> th {
+  float: left;
+  border-bottom-width: 0;
+}
+</style>
 <div id="Package-popup" class="popup_menu" form-dragable="true">
     <div id="exit"><span class="glyphicon glyphicon-remove"></span></div>
     <div class="row">
@@ -12,6 +28,8 @@
             <h2 id="Package-formtitle" >Insert A New Record</h2>
             <div class="cus-form">
                 <form data-parsley-validate action="<?php echo Yii::app()->createUrl('Package/create') ?>" method="post" id="Package-form">
+                    
+                    
                     <div data-wizard-init row>
                         <ul class="steps">
                             <li data-step="1">Package Details.</li>
@@ -44,34 +62,57 @@
                             </div>
                             <div data-step="2">
                                 <div class="row">
-                                    <table class="table table-striped">
+                                    <script>
+                                    $(document).on("change",".main_check", function(){
+                                        cal_tot();
+                                    });
+                                    $(document).on("keyup","#adjustment_charge", function(){
+                                        cal_tot();
+                                    });
+                                    
+                                    function cal_tot(){
+                                        var tot = 0;
+                                    var adjustment_charge = parseFloat($("#adjustment_charge").val());
+                                        $('.main_check').each(function () {
+                                            if($(this).is(':checked')){
+                                               tot += parseFloat($(this).attr('data-selling')); 
+                                            }
+                                        });
+                                        tot += adjustment_charge;
+                                        $("#total").val(parseFloat(tot));
+                                    }
+                                    </script>
+                                    <table class="table table-striped table-fixed">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Description</th>
-                                                <th>Cost</th>
+                                                <th class="col-sm-1"></th>
+                                                <th class="col-sm-3">Feature Name</th>
+                                                <th class="col-sm-10">Description</th>
+                                                <th class="col-sm-2 text-right">Selling</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php
+                                            $pkg_feature = PkgFeatures::model()->findAll();
+                                            foreach ($pkg_feature as $value) {
+                                                ?>
                                             <tr>
-                                                <td>
-                                                    <input type="text"  id="feature_name" name="" class="form-control"/>
-                                                    <input type="hidden"  id="feature_name" name="" class="form-control"/>
-                                                </td>
-                                                <td>
-                                                    <input type="text"  id="feature_name" name="" class="form-control"/>
-                                                </td>
-                                                <td>
-                                                    <input type="text" id="" name="" class="form-control" pattern="^[0-9]*\.[0-9]{2}$"placeholder="0.00" required/>
-                                                </td>
+                                                <td class="col-sm-1"><input type="checkbox" id="pkg_feature_<?=$value->id?>" name="pkg_feature[]" value="<?=$value->id?>" data-selling="<?=$value->selling?>" class="main_check form-controls" /></td>
+                                                <td class="col-sm-3"><?=$value->name?></td>
+                                                <td class="col-sm-10"><?=$value->desc?></td>
+                                                <td class="col-sm-2 text-right"><?=$value->selling?></td>
                                             </tr>
+                                            <?php
+                                            }
+                                            ?>
+                                            
                                         </tbody>
                                     </table>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3">
                                         <label>Adjustment Charges: </label>
-                                        <input type="number" step="0.01" id="adjustment_charge" name="adjustment_charge" class="form-control" pattern="^-?[0-9]\d*(\.\d+)?$"placeholder="0.00"   required/>
+                                        <input type="number" step="0.01" value="0.00" id="adjustment_charge" name="adjustment_charge" class="form-control" pattern="^-?[0-9]\d*(\.\d+)?$"placeholder="0.00"   required/>
                                     </div>
                                     <div class="col-sm-3">
                                         <label>Total: </label>
@@ -125,7 +166,7 @@
                 $("#Package-add").attr("disabled", false);
                 $.fn.yiiListView.update('Package-list');
                 $("#Package-popup").fadeOut();
-
+                window.location.reload();
             }
         });
 
@@ -147,9 +188,15 @@
 
         //Handle JSON DATA to Update FORM
         $.getJSON("<?php echo Yii::app()->createUrl('Package/jsondata') ?>/" + id).done(function (data) {
-            $.each(data, function (i, item) {
+            $.each(data.sum, function (i, item) {
                 $("#Package-form #" + i).val(item);
             });
+            
+
+            for(var i =0;i < data.det.length;i++){
+                //alert(data.det[i].pkg_features_id);
+                $("#Package-form #pkg_feature_" + data.det[i].pkg_features_id).attr('checked',true);
+            }
             $("#Package-form").attr("action", "<?php echo Yii::app()->createUrl('Package/update') ?>/" + id);
         });
 
@@ -244,7 +291,13 @@
 <div class="container-fluid">
 
     <div class="row">
-        <div class="col-sm-15 headerdiv">Your Column Name</div>
+        <div class="col-sm-3 headerdiv">Package Name</div>
+        <div class="col-sm-4 headerdiv">Description</div>
+        <div class="col-sm-2 headerdiv">From</div>
+        <div class="col-sm-2 headerdiv">To</div>
+        <div class="col-sm-1 headerdiv">Adjustment</div>
+        <div class="col-sm-1 headerdiv">Total</div>
+        <div class="col-sm-2 headerdiv">Created</div>
         <div class="col-sm-1 headerdiv">&nbsp;</div>
     </div>
 

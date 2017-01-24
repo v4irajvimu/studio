@@ -47,7 +47,9 @@ class PackageController extends Controller
         
         
         public function actionjsondata($id) {
-                $data = Package::model()->findByPk($id);
+                $data['sum'] = Package::model()->findByPk($id);
+//                $data['det'] = PackageHasPkgFeatures::model()->findByAttributes(array('package_id'=>$id));
+                $data['det'] = Yii::app()->db->createCommand("SELECT pkg_features_id FROM package_has_pkg_features WHERE package_id='$id'")->queryAll();
                 $output = CJSON::encode($data);
                 echo $output;
         }
@@ -78,6 +80,7 @@ class PackageController extends Controller
                     $model->created = date('Y-m-d H:i:s');
                     $model->users_id = Yii::app()->user->userid;
                     
+                    
                     if (!$model->save()) {
                     
                         $er = $model->getErrors();
@@ -87,6 +90,20 @@ class PackageController extends Controller
                             $err_txt .= $lebel . " : " . $value[0] . "<br/>";
                         }
                         throw new Exception($err_txt);
+                    }
+                    else{
+                        $pkg_id = $model->id;
+                        $pkg_ftt = $_POST['pkg_feature'];
+                        foreach ($pkg_ftt as $value) {
+                            $pkg_ftr_model = new PackageHasPkgFeatures;
+                            $pkg_ftr_model->package_id = $pkg_id;
+                            $pkg_ftr_model->pkg_features_id = $value;
+                            $pkgFeatures = PkgFeatures::model()->findByPk($value);
+                            $pkg_ftr_model->created = date('Y-m-d H:i:s');
+                            $pkg_ftr_model->selling = $pkgFeatures->selling;
+                            $pkg_ftr_model->cost = $pkgFeatures->cost;
+                            $pkg_ftr_model->save();
+                        }
                     }
 
                     echo "Successfully Created";
@@ -118,6 +135,22 @@ class PackageController extends Controller
                         }
                         throw new Exception($err_txt);
                     
+                    }else{
+                        $pkg_id = $id;
+                        //Delete Rows first
+                        Yii::app()->db->createCommand("DELETE FROM  package_has_pkg_features WHERE package_id='$pkg_id'")->execute();
+                        
+                        $pkg_ftt = $_POST['pkg_feature'];
+                        foreach ($pkg_ftt as $value) {
+                            $pkg_ftr_model = new PackageHasPkgFeatures;
+                            $pkg_ftr_model->package_id = $pkg_id;
+                            $pkg_ftr_model->pkg_features_id = $value;
+                            $pkgFeatures = PkgFeatures::model()->findByPk($value);
+                            $pkg_ftr_model->created = date('Y-m-d H:i:s');
+                            $pkg_ftr_model->selling = $pkgFeatures->selling;
+                            $pkg_ftr_model->cost = $pkgFeatures->cost;
+                            $pkg_ftr_model->save();
+                        }
                     }
 
                         echo "Successfully Created";
@@ -136,6 +169,9 @@ class PackageController extends Controller
 	public function actionDelete($id)
 	{
 		 try {
+                     //Delete Rows first
+                        Yii::app()->db->createCommand("DELETE FROM  package_has_pkg_features WHERE package_id='$id'")->execute();
+                        
                     if ($this->loadModel($id)->delete()) {
                         echo "Successfully Deleted";
                     } else {
