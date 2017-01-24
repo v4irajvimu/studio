@@ -146,7 +146,7 @@
 
 <div class="row">
     <div class="col-sm-16">
-        <h2 class="header_topic" style="font-size: 20px;">User Logs<br/>
+        <h2 class="header_topic" style="font-size: 20px;">USER LOGS<br/>
             <span style="font-size: 14px; line-height: 16px;">Manage User Logs with this Section. </span></h2>
     </div>
 </div>
@@ -154,7 +154,7 @@
 <div class="inner_nav">
 <div class="row">
     <div class="col-sm-2">        
-        <button id="UserLogs-add" data-model="UserLogs" class="btn btn-default btn-block btn-sm">Add <span class="glyphicon glyphicon-plus"></span></button>
+        <button disabled="" id="UserLogs-add" data-model="UserLogs" class="btn btn-default btn-block btn-sm">Add <span class="glyphicon glyphicon-plus"></span></button>
     </div>
     <div class="col-sm-7">
         <div class="input-group">
@@ -179,7 +179,9 @@
 <div class="container-fluid">
 
     <div class="row">
-        <div class="col-sm-15 headerdiv">Your Column Name</div>
+        <div class="col-sm-4 headerdiv">User</div>
+        <div class="col-sm-9 headerdiv">Action</div>
+        <div class="col-sm-2 headerdiv">Performed At.</div>
         <div class="col-sm-1 headerdiv">&nbsp;</div>
     </div>
 
