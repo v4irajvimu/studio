@@ -155,7 +155,7 @@ class UserLogsController extends Controller
                 if (empty($_GET['val'])) {
                     $searchtxt = "";
                 } else {
-                    $searchtxt = " AND name LIKE '%" . $_GET['val'] . "%' ";
+                    $searchtxt = " HAVING  (name LIKE '%" . $_GET['val'] . "%' OR users_name LIKE '%" . $_GET['val'] . "%')";
                 }
                 
                 if (empty($_GET['pages'])) {
@@ -165,7 +165,7 @@ class UserLogsController extends Controller
                 }
                 
                 
-                $sql = "SELECT * FROM user_logs WHERE online = 1 $searchtxt ORDER BY name ASC ";                
+                $sql = "SELECT *, (SELECT name FROM users WHERE users.id=user_logs.users_id) AS users_name FROM user_logs  $searchtxt ORDER BY name ASC ";                
                 $count = Yii::app()->db->createCommand($sql)->query()->rowCount;
                 $dataProvider = new CSqlDataProvider($sql, array(
                     'totalItemCount' => $count,
