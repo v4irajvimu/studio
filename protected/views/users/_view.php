@@ -6,41 +6,28 @@
 
 <div class="row datarow">
 
-    <div class='col-sm-2 cells'>
-	<?php echo $data['name']; ?>
-</div>
 <div class='col-sm-2 cells'>
-	<?php echo $data['nic']; ?>
+	<?php echo $data['name']; ?>
 </div>
 <div class='col-sm-2 cells'>
 	<?php echo $data['address']; ?>
 </div>
-<div class='col-sm-2 cells'>
-	<?php echo $data['tp_fixed']; ?>
+    <div class='col-sm-2 cells'>
+	<?php echo $data['nic']; ?>
 </div>
 <div class='col-sm-2 cells'>
-	<?php echo $data['tp_mobile']; ?>
-</div>
-<div class='col-sm-2 cells'>
-	<?php echo $data['dob']; ?>
+	<?php echo $data['created']; ?>
 </div>
 <div class='col-sm-2 cells'>
 	<?php echo $data['last_logged']; ?>
 </div>
-<div class='col-sm-2 cells'>
-	<?php echo $data['username']; ?>
+
+<div class='col-sm-3 cells'>
+	<?php echo $data['tp_mobile']."<br>".$data['tp_fixed']; ?>
 </div>
 <div class='col-sm-2 cells'>
-	<?php echo $data['password']; ?>
-</div>
-<div class='col-sm-2 cells'>
-	<?php echo $data['email']; ?>
-</div>
-<div class='col-sm-2 cells'>
-	<?php echo $data['company_id']; ?>
-</div>
-<div class='col-sm-2 cells'>
-	<?php echo $data['user_levels_id']; ?>
+	<?php 
+        echo UserLevels::model()->findByPk($data['user_levels_id'])->name; ?>
 </div>
     
     <div class='col-sm-1 cells btn-cog text-right'>

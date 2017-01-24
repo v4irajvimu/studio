@@ -14,9 +14,51 @@
             <div class="cus-form">
                 <form action="<?php echo Yii::app()->createUrl('Users/create') ?>" method="post" id="Users-form">
                     <div class="row">
-                        <div class="col-sm-16">
-                            <label>Your Column Name</label>
-                            <input type="text" id="name" name="name" class="form-control" />
+                        <div class="col-sm-10">
+                            <label>User Name: </label>
+                            <input type="text" id="name" name="name" class="form-control" required />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <label>Address: </label>
+                            <textarea id="address" name="address" class="form-control" required></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <label>NIC: </label>
+                            <input type="text" id="nic" name="nic" class="form-control" placeholder="901850040V"  required />
+                        </div>
+                        <div class="col-sm-5">
+                            <label>Date of Birth: </label>
+                            <input type="text" id="dob" name="dob" class="form-control datepicker"  required />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <label>Fixed Line: </label>
+                            <input type="text" id="tp_fixed" name="tp_fixed" class="form-control" placeholder="+947xxxxxxxx" pattern="\+\d{11}" required />
+                        </div>
+                        <div class="col-sm-5">
+                            <label>Mobile: </label>
+                            <input type="text" id="tp_mobile" name="tp_mobile" class="form-control" placeholder="+947xxxxxxxx" pattern="\+\d{11}" required />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <label>Email: </label>
+                            <input type="email" id="email" name="email" class="form-control" required/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <label>Username: </label>
+                            <input type="text" id="username" name="username" class="form-control" placeholder=""  required />
+                        </div>
+                        <div class="col-sm-5">
+                            <label>Password: </label>
+                            <input type="password" id="password" name="password" class="form-control "  required />
                         </div>
                     </div>
                     <div class="row btn-row">
@@ -179,7 +221,13 @@
 <div class="container-fluid">
 
     <div class="row">
-        <div class="col-sm-15 headerdiv">Your Column Name</div>
+        <div class="col-sm-2 headerdiv">Name</div>
+        <div class="col-sm-2 headerdiv">Address</div>
+        <div class="col-sm-2 headerdiv">NIC</div>
+        <div class="col-sm-2 headerdiv">Created</div>
+        <div class="col-sm-2 headerdiv">Last Logged</div>
+        <div class="col-sm-3 headerdiv">Contact</div>
+        <div class="col-sm-2 headerdiv">Admin Level</div> 
         <div class="col-sm-1 headerdiv">&nbsp;</div>
     </div>
 

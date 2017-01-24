@@ -74,6 +74,11 @@ class UsersController extends Controller
                     $model = new Users;
 
                     $model->attributes = $_POST;
+                    $model->password = md5($_POST['password']);
+                    $model->created = date('Y-m-d');
+                    $model->last_logged = date('Y-m-d');
+                    $model->online = 1;
+                    $model->company_id = 1;
 
                     if (!$model->save()) {
                     
@@ -104,7 +109,9 @@ class UsersController extends Controller
                     $model=$this->loadModel($id);
 
                     $model->attributes = $_POST;
-
+                    if($model->password != $_POST['password']){
+                        $_POST['password'] = md5($_POST['password']);
+                    }
                     if (!$model->save()) {
                     
                         $er = $model->getErrors();
