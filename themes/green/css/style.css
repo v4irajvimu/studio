@@ -220,13 +220,13 @@ header .company{
 /************* popup_menu *********/
 .popup_menu{
     position: fixed;
-    top: 50%;
-    left: 50%;
+    top: 23%;
+    left: 40%;
     width: 900px;
     margin-left: -300px;
     margin-top: -100px;
     background: white;
-    box-shadow: 1px 1px 108px rgba(0,0,0,0.3);
+    box-shadow: 1px 1px 108px rgb(33, 129, 182);
     z-index: 5000;
     display: none;
 }

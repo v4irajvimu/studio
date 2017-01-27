@@ -28,7 +28,7 @@ class WrkOrderController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','jsondata','create','update','delete'),
+				'actions'=>array('index','view','jsondata','create','update','delete','cust_list','codegen','item_list'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -44,7 +44,58 @@ class WrkOrderController extends Controller
 			),
 		);
 	}
+        public function actioncodegen(){
+            $sql = "SELECT * FROM `wrk_order` WHERE `wo_type`='".$_POST['wo_type']."'";
+            $count = Yii::app()->db->createCommand($sql)->query()->rowCount;
+            if($_POST['wo_type'] == "CASH"){
+                $pre = "CS";
+            }
+            elseif ($_POST['wo_type'] == "CREDIT") {
+                $pre = "CR";
+            }
+            $str = ++$count;
+            $paded = str_pad($str,5,"0",STR_PAD_LEFT);
+            $code = $pre."_".date('d')."".date('m')."".date('Y')."_".$paded;
+            //print_r($code);
+            echo $code;
+        }
         
+        public function actioncust_list() {
+            $search = "";
+            if(isset($_POST['search'])){
+                $search = $_POST['search'];
+            }
+            $sql = "SELECT  * FROM `customer` WHERE (`name` LIKE '%$search%' OR `nic` LIKE '%$search%' OR `tp_fixed` LIKE '%$search%' OR `tp_mobile` LIKE '%$search%') LIMIT 0,10 ";
+            $cust_det = Yii::app()->db->createCommand($sql)->queryAll();
+            
+            foreach ($cust_det as $value) {
+                echo '<tr>';
+                echo '<td>'.$value['name'].'</td>';
+                echo '<td>'.$value['nic'].'</td>';
+                echo '<td>'.$value['tp_mobile'].' '.$value['tp_fixed'].'</td>';
+                echo '<td><button type="button" data-name="'.$value['name'].'" data-id="'.$value['id'].'" class="cust_row btn btn-info btn-sm"><span class="glyphicon glyphicon-plus"></span></button></td>';
+                echo '</tr>';
+                
+            }
+        }
+        
+        public function actionitem_list() {
+            $search = "";
+            if(isset($_POST['search'])){
+                $search = $_POST['search'];
+            }
+            $sql = "SELECT  i.*,s.name as supplier FROM `items` i JOIN `supplier` s ON s.id=i.supplier_id WHERE (i.`name` LIKE '%$search%' OR s.`name` LIKE '%$search%' ) LIMIT 0,10 ";
+            $item_det = Yii::app()->db->createCommand($sql)->queryAll();
+            
+            foreach ($item_det as $value) {
+                echo '<tr>';
+                echo '<td>'.$value['name'].'</td>';
+                echo '<td>'.$value['selling'].'</td>';
+                echo '<td><button type="button" data-name="'.$value['name'].'" data-id="'.$value['id'].'" class="item_row btn btn-info btn-sm"><span class="glyphicon glyphicon-plus"></span></button></td>';
+                echo '</tr>';
+                
+            }
+        }
         
         public function actionjsondata($id) {
                 $data = WrkOrder::model()->findByPk($id);
@@ -74,7 +125,8 @@ class WrkOrderController extends Controller
                     $model = new WrkOrder;
 
                     $model->attributes = $_POST;
-
+                    $model->created = date('y-m-d H:i:s');
+                    $model->wo_status_id = 1;
                     if (!$model->save()) {
                     
                         $er = $model->getErrors();
@@ -155,7 +207,7 @@ class WrkOrderController extends Controller
                 if (empty($_GET['val'])) {
                     $searchtxt = "";
                 } else {
-                    $searchtxt = " AND name LIKE '%" . $_GET['val'] . "%' ";
+                    $searchtxt = " WHERE (name LIKE '%" . $_GET['val'] . "%' OR code LIKE '%" . $_GET['val'] . "%') ";
                 }
                 
                 if (empty($_GET['pages'])) {
@@ -165,7 +217,7 @@ class WrkOrderController extends Controller
                 }
                 
                 
-                $sql = "SELECT * FROM wrk_order WHERE online = 1 $searchtxt ORDER BY name ASC ";                
+                $sql = "SELECT * FROM wrk_order   $searchtxt ORDER BY name ASC ";                
                 $count = Yii::app()->db->createCommand($sql)->query()->rowCount;
                 $dataProvider = new CSqlDataProvider($sql, array(
                     'totalItemCount' => $count,

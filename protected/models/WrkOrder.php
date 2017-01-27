@@ -13,6 +13,8 @@
  * @property string $remark
  * @property integer $wo_status_id
  * @property integer $customer_id
+ * @property string $created
+ * @property string $customer_name
  *
  * The followings are the available model relations:
  * @property Payments[] $payments
@@ -42,13 +44,13 @@ class WrkOrder extends CActiveRecord
 			array('wo_status_id, customer_id', 'required'),
 			array('wo_status_id, customer_id', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>45),
-			array('code', 'length', 'max'=>15),
+			array('code', 'length', 'max'=>55),
 			array('wo_type', 'length', 'max'=>6),
-			array('remark', 'length', 'max'=>255),
-			array('eff_date, delivery_date', 'safe'),
+			array('remark, customer_name', 'length', 'max'=>255),
+			array('eff_date, delivery_date, created', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, code, eff_date, wo_type, delivery_date, remark, wo_status_id, customer_id', 'safe', 'on'=>'search'),
+			array('id, name, code, eff_date, wo_type, delivery_date, remark, wo_status_id, customer_id, created, customer_name', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -83,6 +85,8 @@ class WrkOrder extends CActiveRecord
 			'remark' => 'Remark',
 			'wo_status_id' => 'Wo Status',
 			'customer_id' => 'Customer',
+			'created' => 'Created',
+			'customer_name' => 'Customer Name',
 		);
 	}
 
@@ -113,6 +117,8 @@ class WrkOrder extends CActiveRecord
 		$criteria->compare('remark',$this->remark,true);
 		$criteria->compare('wo_status_id',$this->wo_status_id);
 		$criteria->compare('customer_id',$this->customer_id);
+		$criteria->compare('created',$this->created,true);
+		$criteria->compare('customer_name',$this->customer_name,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

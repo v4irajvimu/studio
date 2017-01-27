@@ -75,7 +75,7 @@ class ItemsController extends Controller
 
                     $model->attributes = $_POST;
                     $model->online = 1;
-                    $model->created = date('Y-m-d H:i:s');
+                    //$model->created = date('Y-m-d H:i:s');
                     if (!$model->save()) {
                     
                         $er = $model->getErrors();
