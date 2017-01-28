@@ -3,7 +3,7 @@
 // change the following paths if necessary
 
 // localhost
-$yii=dirname(__FILE__).'/../yii/framework/yii.php';
+$yii=dirname(__FILE__).'/yii/framework/yii.php';
 
 //Online
 //$yii=dirname(__FILE__).'/../yii/framework/yii.php';

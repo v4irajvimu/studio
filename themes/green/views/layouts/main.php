@@ -33,6 +33,9 @@
             <!-- CSS WIZARD JS-->
             <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/jquery.wizard.js'); ?>
 
+            <!-- Autocomplete JS-->
+            <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/jquery.autocomplete.js'); ?>
+
 
 
             <!-- Bootstrap CSS 3.1.1 -->
@@ -62,6 +65,9 @@
             
             <!-- CSS WIZARD CSS-->
             <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/jquery.wizard.css" />
+
+            <!-- Autocomplete CSS-->
+            <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/jquery.autocomplete.css" />
             <title><?php echo CHtml::encode($this->pageTitle); ?></title>
             <script>
 

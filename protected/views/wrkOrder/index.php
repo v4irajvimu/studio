@@ -8,6 +8,8 @@
     $(document).ready(function () {
         getCustomerList();
         getItemList();
+
+
     });
 
     $(document).on("click", ".cust_row", function () {
@@ -16,9 +18,6 @@
         $('#customer_modal').modal('toggle');
     });
     $(document).on("click", ".item_row", function () {
-        //$("#customer_name").val($(this).attr('data-name'));
-        //$("#customer_id").val($(this).attr('data-id'));
-
         $('#item_modal').modal('toggle');
         item_add_grid($(this));
     });
@@ -48,9 +47,11 @@
         $("#item_selling_"+row_id).val(selling);
         $("#item_min_price_"+row_id).val(min_price);
         $("#item_max_price_"+row_id).val(max_price);
+        $(".delete_row").show();
+
         var tbl_row='';
         var tbl_row_id = ++row_id;
-        tbl_row += '<tr class="cl" row_id="'+tbl_row_id+'">';
+        tbl_row += '<tr class="cl" row_id="'+tbl_row_id+'" id="row_'+tbl_row_id+'">';
         tbl_row += '<td>';
         tbl_row += '<input disabled type="text" id="item_name_'+tbl_row_id+'" name="item_name_'+tbl_row_id+'" class="form-control"/>';
         tbl_row += '<input type="hidden" id="item_id_'+tbl_row_id+'" name="item_id_'+tbl_row_id+'" class="form-control"/>';
@@ -68,6 +69,8 @@
         tbl_row += '<input  type="text" id="item_amount_'+tbl_row_id+'" name="item_amount_'+tbl_row_id+'" class="form-control"/>';
         tbl_row += '</td>';
         tbl_row += '<td>';
+        tbl_row += '<a href="#" style="display: none;" class="btn btn-danger btn-md delete_row" ><span class="glyphicon glyphicon-trash"></span></a>';
+        tbl_row += '</td>';
         tbl_row += '<a href="#" data-toggle="modal" data-target="#item_modal" class="btn btn-info form-control" >';
         tbl_row += '<span class="glyphicon glyphicon-plus"></span>';
         tbl_row += '</a>';
@@ -76,8 +79,6 @@
 
         $("#item_body").append(tbl_row);
       }
-
-
     }
 
     $(document).on("keyup", "#cust_search", function () {
@@ -89,6 +90,42 @@
     $(document).on("change", "#wo_type", function () {
         codeGen($(this).val());
     });
+    $(document).on("click", ".delete_row", function (e) {
+        e.preventDefault();
+        delete_rows($(this));
+    });
+
+    function delete_rows(thisObj){
+        var start_row = thisObj.parents('tr').attr('row_id');
+        var row_count=0;
+        
+        // get row count alert(start_row);
+        $(".cl").each(function(){
+            row_count++;
+        });
+        //alert("#item_id_"+i+1);
+        var last_row=start_row;
+        for(var i=start_row; i<row_count; i++){
+            last_row++;
+            var k =parseFloat(i)+1;
+            $("#item_id_"+i).val($("#item_id_"+k).val());
+            $("#item_name_"+i).val($("#item_name_"+k).val());
+            $("#item_cost_"+i).val($("#item_cost_"+k).val());
+            $("#item_selling_"+i).val($("#item_selling_"+k).val());
+            $("#item_min_price_"+i).val($("#item_min_price_"+k).val());
+            $("#item_max_price_"+i).val($("#item_max_price_"+k).val());
+            $("#item_qty_"+i).val($("#item_qty_"+k).val());
+            $("#item_amount_"+i).val($("#item_amount_"+k).val());
+
+
+        }
+        
+        $("#row_"+last_row).remove(); 
+        var bfr_lst = parseFloat(last_row)-1;
+        alert("#row_"+bfr_lst);
+        $("#row_"+bfr_lst).child('a').hide();  
+    }
+
     function codeGen(wo_type) {
         $.post("<?= Yii::app()->createUrl('WrkOrder/codegen') ?>", {
             wo_type: wo_type
@@ -212,6 +249,11 @@
                                 </div>
                             </div>
                             <div data-step="2">
+                            <div class="row">
+                                <a href="#" data-toggle="modal" data-target="#item_modal" class="btn btn-info btn-md form-control" >
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </a>
+                            </div>
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
@@ -223,7 +265,7 @@
                                         </tr>
                                     </thead>
                                     <tbody id="item_body">
-                                        <tr class="cl" row_id="1">
+                                        <tr class="cl" row_id="1" id="row_1">
                                             <td>
                                                 <input disabled type="text" id="item_name_1" name="item_name_1" class="form-control"/>
                                                 <input type="hidden" id="item_id_1" name="item_id_1" class="form-control"/>
@@ -239,9 +281,10 @@
                                             </td>
                                             <td><input  type="text" id="item_amount_1" name="item_amount_1" class="form-control"/></td>
                                             <td>
-                                                <a href="#" data-toggle="modal" data-target="#item_modal" class="btn btn-info form-control" >
-                                                    <span class="glyphicon glyphicon-plus"></span>
+                                                <a href="#" style="display: none;" class="btn btn-danger btn-md  delete_row" >
+                                                    <span class="glyphicon glyphicon-trash"></span>
                                                 </a>
+                                                
                                             </td>
                                         </tr>
 
