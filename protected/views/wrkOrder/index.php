@@ -3,7 +3,7 @@
 /* @var $dataProvider CActiveDataProvider */
 ?>
 
-<!---- POPUP MENUES -->
+<!-- POPUP MENUES -->
 <script>
     $(document).ready(function () {
         getCustomerList();
@@ -18,10 +18,68 @@
     $(document).on("click", ".item_row", function () {
         //$("#customer_name").val($(this).attr('data-name'));
         //$("#customer_id").val($(this).attr('data-id'));
+
         $('#item_modal').modal('toggle');
+        item_add_grid($(this));
     });
-    
-    
+    function item_add_grid(thisObj){
+      var items_id = thisObj.attr('data-id');
+      var name = thisObj.attr('data-name');
+      var cost = thisObj.attr('data-cost');
+      var selling = thisObj.attr('data-selling');
+      var min_price = thisObj.attr('data-min_price');
+      var max_price = thisObj.attr('data-max_price');
+      var row_id = '';
+      var item_exists = false;
+      $(".cl").each(function(){
+        row_id = $(this).attr('row_id');
+        //alert('row id: '+$("#item_id_"+row_id).val() +' modal item id '+ items_id);
+        if($("#item_id_"+row_id).val() == items_id){
+          $("#item_qty_"+row_id).focus();
+          item_exists = true;
+          return false;
+        }
+      });
+
+      if(!item_exists){
+        $("#item_id_"+row_id).val(items_id);
+        $("#item_name_"+row_id).val(name);
+        $("#item_cost_"+row_id).val(cost);
+        $("#item_selling_"+row_id).val(selling);
+        $("#item_min_price_"+row_id).val(min_price);
+        $("#item_max_price_"+row_id).val(max_price);
+        var tbl_row='';
+        var tbl_row_id = ++row_id;
+        tbl_row += '<tr class="cl" row_id="'+tbl_row_id+'">';
+        tbl_row += '<td>';
+        tbl_row += '<input disabled type="text" id="item_name_'+tbl_row_id+'" name="item_name_'+tbl_row_id+'" class="form-control"/>';
+        tbl_row += '<input type="hidden" id="item_id_'+tbl_row_id+'" name="item_id_'+tbl_row_id+'" class="form-control"/>';
+        tbl_row += '<input  type="hidden" id="item_cost_'+tbl_row_id+'" name="item_cost_'+tbl_row_id+'" class="form-control"/>';
+        tbl_row += '<input  type="hidden" id="item_min_price_'+tbl_row_id+'" name="item_min_price_'+tbl_row_id+'" class="form-control"/>';
+        tbl_row += '<input  type="hidden" id="item_max_price_'+tbl_row_id+'" name="item_max_price_'+tbl_row_id+'" class="form-control"/>';
+        tbl_row += '</td>';
+        tbl_row += '<td>';
+        tbl_row += '<input disabled type="text" id="item_selling_'+tbl_row_id+'" name="item_selling_'+tbl_row_id+'" class="form-control"/>';
+        tbl_row += '</td>';
+        tbl_row += '<td>';
+        tbl_row += '<input  type="text" id="item_qty_'+tbl_row_id+'" name="item_qty_'+tbl_row_id+'" class="form-control"/>';
+        tbl_row += '</td>';
+        tbl_row += '<td>';
+        tbl_row += '<input  type="text" id="item_amount_'+tbl_row_id+'" name="item_amount_'+tbl_row_id+'" class="form-control"/>';
+        tbl_row += '</td>';
+        tbl_row += '<td>';
+        tbl_row += '<a href="#" data-toggle="modal" data-target="#item_modal" class="btn btn-info form-control" >';
+        tbl_row += '<span class="glyphicon glyphicon-plus"></span>';
+        tbl_row += '</a>';
+        tbl_row += '</td>';
+        tbl_row += '</tr>';
+
+        $("#item_body").append(tbl_row);
+      }
+
+
+    }
+
     $(document).on("keyup", "#cust_search", function () {
         getCustomerList();
     });
@@ -157,26 +215,36 @@
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th class="col-sm-6">Name</th>
-                                            <th class="col-sm-2">Cost</th>
+                                            <th class="col-sm-4">Name</th>
+                                            <th class="col-sm-2">Selling</th>
                                             <th class="col-sm-2">Qty.</th>
+                                            <th class="col-sm-2">Amount</th>
                                             <th class="col-sm-2">Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
+                                    <tbody id="item_body">
+                                        <tr class="cl" row_id="1">
                                             <td>
-                                                <input disabled type="text" id="total" name="total" class="form-control"/>
-                                                <input type="hidden" id="total" name="total" class="form-control"/>
+                                                <input disabled type="text" id="item_name_1" name="item_name_1" class="form-control"/>
+                                                <input type="hidden" id="item_id_1" name="item_id_1" class="form-control"/>
+                                                <input  type="hidden" id="item_cost_1" name="item_cost_1" class="form-control"/>
+                                                <input  type="hidden" id="item_min_price_1" name="item_min_price_1" class="form-control"/>
+                                                <input  type="hidden" id="item_max_price_1" name="item_max_price_1" class="form-control"/>
                                             </td>
-                                            <td><input disabled type="text" id="total" name="total" class="form-control"/></td>
-                                            <td><input  type="text" id="total" name="total" class="form-control"/></td>
+                                            <td>
+                                              <input disabled type="text" id="item_selling_1" name="item_selling_1" class="form-control"/>
+                                            </td>
+                                            <td>
+                                              <input  type="text" id="item_qty_1" name="item_qty_1" class="form-control"/>
+                                            </td>
+                                            <td><input  type="text" id="item_amount_1" name="item_amount_1" class="form-control"/></td>
                                             <td>
                                                 <a href="#" data-toggle="modal" data-target="#item_modal" class="btn btn-info form-control" >
                                                     <span class="glyphicon glyphicon-plus"></span>
                                                 </a>
                                             </td>
                                         </tr>
+
                                     </tbody>
                                 </table>
                                 <!-- Modal Item list-->
@@ -351,7 +419,7 @@
 
 <div class="inner_nav">
     <div class="row">
-        <div class="col-sm-2">        
+        <div class="col-sm-2">
             <button id="WrkOrder-add" data-model="WrkOrder" class="btn btn-default btn-block btn-sm">Add <span class="glyphicon glyphicon-plus"></span></button>
         </div>
         <div class="col-sm-7">

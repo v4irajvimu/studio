@@ -59,7 +59,7 @@ class WrkOrderController extends Controller
             //print_r($code);
             echo $code;
         }
-        
+
         public function actioncust_list() {
             $search = "";
             if(isset($_POST['search'])){
@@ -67,7 +67,7 @@ class WrkOrderController extends Controller
             }
             $sql = "SELECT  * FROM `customer` WHERE (`name` LIKE '%$search%' OR `nic` LIKE '%$search%' OR `tp_fixed` LIKE '%$search%' OR `tp_mobile` LIKE '%$search%') LIMIT 0,10 ";
             $cust_det = Yii::app()->db->createCommand($sql)->queryAll();
-            
+
             foreach ($cust_det as $value) {
                 echo '<tr>';
                 echo '<td>'.$value['name'].'</td>';
@@ -75,10 +75,10 @@ class WrkOrderController extends Controller
                 echo '<td>'.$value['tp_mobile'].' '.$value['tp_fixed'].'</td>';
                 echo '<td><button type="button" data-name="'.$value['name'].'" data-id="'.$value['id'].'" class="cust_row btn btn-info btn-sm"><span class="glyphicon glyphicon-plus"></span></button></td>';
                 echo '</tr>';
-                
+
             }
         }
-        
+
         public function actionitem_list() {
             $search = "";
             if(isset($_POST['search'])){
@@ -86,17 +86,24 @@ class WrkOrderController extends Controller
             }
             $sql = "SELECT  i.*,s.name as supplier FROM `items` i JOIN `supplier` s ON s.id=i.supplier_id WHERE (i.`name` LIKE '%$search%' OR s.`name` LIKE '%$search%' ) LIMIT 0,10 ";
             $item_det = Yii::app()->db->createCommand($sql)->queryAll();
-            
+
             foreach ($item_det as $value) {
                 echo '<tr>';
                 echo '<td>'.$value['name'].'</td>';
                 echo '<td>'.$value['selling'].'</td>';
-                echo '<td><button type="button" data-name="'.$value['name'].'" data-id="'.$value['id'].'" class="item_row btn btn-info btn-sm"><span class="glyphicon glyphicon-plus"></span></button></td>';
+                echo '<td><button type="button"
+																	data-name="'.$value['name'].'"
+																	data-id="'.$value['id'].'"
+																	data-cost="'.$value['cost'].'"
+																	data-selling="'.$value['selling'].'"
+																	data-min_price="'.$value['min_price'].'"
+																	data-max_price="'.$value['max_price'].'" 
+																	class="item_row btn btn-info btn-sm"><span class="glyphicon glyphicon-plus"></span></button></td>';
                 echo '</tr>';
-                
+
             }
         }
-        
+
         public function actionjsondata($id) {
                 $data = WrkOrder::model()->findByPk($id);
                 $output = CJSON::encode($data);
@@ -120,15 +127,15 @@ class WrkOrderController extends Controller
 	 */
 	public function actionCreate()
 	{
-		try {           
-            
+		try {
+
                     $model = new WrkOrder;
 
                     $model->attributes = $_POST;
                     $model->created = date('y-m-d H:i:s');
                     $model->wo_status_id = 1;
                     if (!$model->save()) {
-                    
+
                         $er = $model->getErrors();
                         $err_txt = "";
                         foreach ($er as $key => $value) {
@@ -141,7 +148,7 @@ class WrkOrderController extends Controller
                     echo "Successfully Created";
                 } catch (Exception $exc) {
                     echo $exc->getMessage();
-                } 
+                }
 	}
 
 	/**
@@ -151,14 +158,14 @@ class WrkOrderController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
-            try {           
-            
+            try {
+
                     $model=$this->loadModel($id);
 
                     $model->attributes = $_POST;
 
                     if (!$model->save()) {
-                    
+
                         $er = $model->getErrors();
                         $err_txt = "";
                         foreach ($er as $key => $value) {
@@ -166,15 +173,15 @@ class WrkOrderController extends Controller
                             $err_txt .= $lebel . " : " . $value[0] . "<br/>";
                         }
                         throw new Exception($err_txt);
-                    
+
                     }
 
                         echo "Successfully Created";
                 } catch (Exception $exc) {
                         echo $exc->getMessage();
-                }      
-        
-		
+                }
+
+
 	}
 
 	/**
@@ -202,22 +209,22 @@ class WrkOrderController extends Controller
 	 */
 	public function actionIndex()
 	{
-		
+
                 //Handle Search Values
                 if (empty($_GET['val'])) {
                     $searchtxt = "";
                 } else {
                     $searchtxt = " WHERE (name LIKE '%" . $_GET['val'] . "%' OR code LIKE '%" . $_GET['val'] . "%') ";
                 }
-                
+
                 if (empty($_GET['pages'])) {
                     $pages = 10;
                 } else {
                     $pages = $_GET['pages'];
                 }
-                
-                
-                $sql = "SELECT * FROM wrk_order   $searchtxt ORDER BY name ASC ";                
+
+
+                $sql = "SELECT * FROM wrk_order   $searchtxt ORDER BY name ASC ";
                 $count = Yii::app()->db->createCommand($sql)->query()->rowCount;
                 $dataProvider = new CSqlDataProvider($sql, array(
                     'totalItemCount' => $count,
@@ -225,8 +232,8 @@ class WrkOrderController extends Controller
                         'pageSize' => $pages
                         ),
                     )
-                );       
-                        
+                );
+
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
