@@ -10616,3 +10616,12 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
 ---
+2017/01/28 23:11:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/2c48cef9/jui/css/base/jquery-ui.css".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/2c48cef9...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/assets/2c48cef9/jui/css/base/jquery-ui.css
+HTTP_REFERER=http://localhost/studio/
+---
