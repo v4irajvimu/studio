@@ -10616,3 +10616,163 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
 ---
+2017/01/30 13:27:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/01/30 13:27:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/01/30 13:30:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/01/30 13:30:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/01/30 13:30:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/01/30 13:32:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/01/30 13:53:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/01/30 13:53:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/01/30 13:55:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/01/30 13:55:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/01/30 14:00:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/01/30 14:00:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/01/30 14:01:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/01/30 14:09:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/01/30 14:10:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/01/30 14:11:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/01/30 14:18:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/01/30 14:19:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/01/30 14:20:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/01/30 14:31:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---

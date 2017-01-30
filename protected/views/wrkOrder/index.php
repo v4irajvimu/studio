@@ -8,9 +8,29 @@
     $(document).ready(function () {
         getCustomerList();
         getItemList();
-
-
+        
+        cal_grand_total();
     });
+
+    $(document).on("keyup",".qty",function(){
+        var row = $(this).closest('tr');
+        var selling = row.find('.selling').val();
+        var amount = parseFloat((selling !=='')?selling:0) * parseFloat(($(this).val() !=='')?$(this).val():0);
+        row.find('.amount').val(amount);
+        cal_grand_total();
+    });
+    function cal_grand_total(){
+        var grandTot = 0;
+        $(".amount").each(function(){
+            var a = ($(this).val()!=='')?$(this).val():0;
+            grandTot += parseFloat(a);
+        });
+        $("#total").val(grandTot);
+    }
+
+    function cal_total(){
+
+    }
 
     $(document).on("click", ".cust_row", function () {
         $("#customer_name").val($(this).attr('data-name'));
@@ -21,18 +41,21 @@
         $('#item_modal').modal('toggle');
         item_add_grid($(this));
     });
+    
+
     function item_add_grid(thisObj){
+
       var items_id = thisObj.attr('data-id');
       var name = thisObj.attr('data-name');
       var cost = thisObj.attr('data-cost');
       var selling = thisObj.attr('data-selling');
       var min_price = thisObj.attr('data-min_price');
       var max_price = thisObj.attr('data-max_price');
-      var row_id = '';
+      var row_id = 0;
       var item_exists = false;
+
       $(".cl").each(function(){
-        row_id = $(this).attr('row_id');
-        //alert('row id: '+$("#item_id_"+row_id).val() +' modal item id '+ items_id);
+        row_id = parseFloat($(this).attr('row_id'))+1;
         if($("#item_id_"+row_id).val() == items_id){
           $("#item_qty_"+row_id).focus();
           item_exists = true;
@@ -41,32 +64,25 @@
       });
 
       if(!item_exists){
-        $("#item_id_"+row_id).val(items_id);
-        $("#item_name_"+row_id).val(name);
-        $("#item_cost_"+row_id).val(cost);
-        $("#item_selling_"+row_id).val(selling);
-        $("#item_min_price_"+row_id).val(min_price);
-        $("#item_max_price_"+row_id).val(max_price);
-        $(".delete_row").show();
-
         var tbl_row='';
-        var tbl_row_id = ++row_id;
+        var tbl_row_id = row_id;
+
         tbl_row += '<tr class="cl" row_id="'+tbl_row_id+'" id="row_'+tbl_row_id+'">';
         tbl_row += '<td>';
-        tbl_row += '<input disabled type="text" id="item_name_'+tbl_row_id+'" name="item_name_'+tbl_row_id+'" class="form-control"/>';
-        tbl_row += '<input type="hidden" id="item_id_'+tbl_row_id+'" name="item_id_'+tbl_row_id+'" class="form-control"/>';
-        tbl_row += '<input  type="hidden" id="item_cost_'+tbl_row_id+'" name="item_cost_'+tbl_row_id+'" class="form-control"/>';
-        tbl_row += '<input  type="hidden" id="item_min_price_'+tbl_row_id+'" name="item_min_price_'+tbl_row_id+'" class="form-control"/>';
-        tbl_row += '<input  type="hidden" id="item_max_price_'+tbl_row_id+'" name="item_max_price_'+tbl_row_id+'" class="form-control"/>';
+        tbl_row += '<input disabled type="text" id="item_name_'+tbl_row_id+'" name="woItem['+tbl_row_id+'][name]" value="'+name+'" class="form-control"/>';
+        tbl_row += '<input type="hidden" id="item_id_'+tbl_row_id+'" name="woItem['+tbl_row_id+'][items_id]" value="'+items_id+'" class="form-control"/>';
+        tbl_row += '<input  type="hidden" id="item_cost_'+tbl_row_id+'" name="woItem['+tbl_row_id+'][cost]" value="'+cost+'" class="form-control"/>';
+        tbl_row += '<input  type="hidden" id="item_min_price_'+tbl_row_id+'" name="woItem['+tbl_row_id+'][min_price]" value="'+min_price+'" class="form-control"/>';
+        tbl_row += '<input  type="hidden" id="item_max_price_'+tbl_row_id+'" name="woItem['+tbl_row_id+'][max_price]" value="'+max_price+'" class="form-control"/>';
         tbl_row += '</td>';
         tbl_row += '<td>';
-        tbl_row += '<input disabled type="text" id="item_selling_'+tbl_row_id+'" name="item_selling_'+tbl_row_id+'" class="form-control"/>';
+        tbl_row += '<input disabled type="text" id="item_selling_'+tbl_row_id+'" name="woItem['+tbl_row_id+'][selling]" value="'+selling+'" class="selling form-control"/>';
         tbl_row += '</td>';
         tbl_row += '<td>';
-        tbl_row += '<input  type="text" id="item_qty_'+tbl_row_id+'" name="item_qty_'+tbl_row_id+'" class="form-control"/>';
+        tbl_row += '<input  type="text" id="item_qty_'+tbl_row_id+'" name="woItem['+tbl_row_id+'][qty]" value="0" class="qty form-control"/>';
         tbl_row += '</td>';
         tbl_row += '<td>';
-        tbl_row += '<input  type="text" id="item_amount_'+tbl_row_id+'" name="item_amount_'+tbl_row_id+'" class="form-control"/>';
+        tbl_row += '<input  type="text" id="item_amount_'+tbl_row_id+'" name="woItem['+tbl_row_id+'][amount]" value="0" class="amount form-control"/>';
         tbl_row += '</td>';
         tbl_row += '<td>';
         tbl_row += '<a href="#" style="display: none;" class="btn btn-danger btn-md delete_row" ><span class="glyphicon glyphicon-trash"></span></a>';
@@ -78,7 +94,10 @@
         tbl_row += '</tr>';
 
         $("#item_body").append(tbl_row);
+        $(".delete_row").show();
+        $("#item_qty_"+tbl_row_id).focus();
       }
+
     }
 
     $(document).on("keyup", "#cust_search", function () {
@@ -104,7 +123,7 @@
             row_count++;
         });
         //alert("#item_id_"+i+1);
-        var last_row=start_row;
+        var last_row=start_row-1;
         for(var i=start_row; i<row_count; i++){
             last_row++;
             var k =parseFloat(i)+1;
@@ -116,13 +135,10 @@
             $("#item_max_price_"+i).val($("#item_max_price_"+k).val());
             $("#item_qty_"+i).val($("#item_qty_"+k).val());
             $("#item_amount_"+i).val($("#item_amount_"+k).val());
-
-
         }
         
         $("#row_"+last_row).remove(); 
         var bfr_lst = parseFloat(last_row)-1;
-        alert("#row_"+bfr_lst);
         $("#row_"+bfr_lst).child('a').hide();  
     }
 
@@ -251,7 +267,7 @@
                             <div data-step="2">
                             <div class="row">
                                 <a href="#" data-toggle="modal" data-target="#item_modal" class="btn btn-info btn-md form-control" >
-                                    <span class="glyphicon glyphicon-plus"></span>
+                                    <span class="glyphicon glyphicon-plus"></span> Insert Items
                                 </a>
                             </div>
                                 <table class="table table-striped">
@@ -264,30 +280,28 @@
                                             <th class="col-sm-2">Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="item_body">
-                                        <tr class="cl" row_id="1" id="row_1">
-                                            <td>
-                                                <input disabled type="text" id="item_name_1" name="item_name_1" class="form-control"/>
-                                                <input type="hidden" id="item_id_1" name="item_id_1" class="form-control"/>
-                                                <input  type="hidden" id="item_cost_1" name="item_cost_1" class="form-control"/>
-                                                <input  type="hidden" id="item_min_price_1" name="item_min_price_1" class="form-control"/>
-                                                <input  type="hidden" id="item_max_price_1" name="item_max_price_1" class="form-control"/>
-                                            </td>
-                                            <td>
-                                              <input disabled type="text" id="item_selling_1" name="item_selling_1" class="form-control"/>
-                                            </td>
-                                            <td>
-                                              <input  type="text" id="item_qty_1" name="item_qty_1" class="form-control"/>
-                                            </td>
-                                            <td><input  type="text" id="item_amount_1" name="item_amount_1" class="form-control"/></td>
-                                            <td>
-                                                <a href="#" style="display: none;" class="btn btn-danger btn-md  delete_row" >
-                                                    <span class="glyphicon glyphicon-trash"></span>
-                                                </a>
-                                                
-                                            </td>
+                                    <tbody id="item_body"></tbody>
+                                </table>
+                                <table id="tbl_total" class="table table-striped">
+                                <thead>
+                                        <tr>
+                                            <th class="col-sm-4">&nbsp;</th>
+                                            <th class="col-sm-2">&nbsp;</th>
+                                            <th class="col-sm-2">&nbsp;</th>
+                                            <th class="col-sm-2">&nbsp;</th>
+                                            <th class="col-sm-2">&nbsp;</th>
                                         </tr>
-
+                                    </thead>
+                                    <tbody>
+                                        <tr >
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td style="border-bottom: 1px double black;">
+                                            <input disabled=""  type="text" id="total" name="total" class="form-control"/>
+                                            </td>
+                                            <td></td>
+                                        </tr>
                                     </tbody>
                                 </table>
                                 <!-- Modal Item list-->
