@@ -14,7 +14,7 @@
             ?>
             <!-- Jquery and Boostrap JS Files -->
             <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
-            <?php Yii::app()->clientScript->registerCoreScript('jquery.ui'); ?>  
+            <?php Yii::app()->clientScript->registerCoreScript('jquery.ui'); ?>
             <?php Yii::app()->clientScript->registerCssFile(Yii::app()->clientScript->getCoreScriptUrl() . '/jui/css/base/jquery-ui.css'); ?>
             <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/bootstrap.min.js'); ?>
 
@@ -29,7 +29,7 @@
             <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/jquery.inputmask.date.extensions.js'); ?>
             <!-- Parsley JS-->
             <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/parsley.min.js'); ?>
-            
+
             <!-- CSS WIZARD JS-->
             <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/jquery.wizard.js'); ?>
 
@@ -55,6 +55,7 @@
 
             <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/jscolor/jscolor.js'); ?>
             <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/style.css" />
+            <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/custom.css" />
             <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/bootstrap.vertical-tabs.css" />
 
             <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/jquery-te-1.4.0.js'); ?>
@@ -62,7 +63,7 @@
 
             <!-- Parsley CSS-->
             <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/parsley.css" />
-            
+
             <!-- CSS WIZARD CSS-->
             <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/jquery.wizard.css" />
 
@@ -153,33 +154,33 @@
             )
         ));
         ?>
-        
-        
+
+
                                             <div class="form">
-        
+
                                                 <div class="form-group">
     <?php echo $form->labelEx($model, 'username', array('class' => 'control-label')); ?>
-        
+
         <?php echo $form->textField($model, 'username', array('size' => 60, 'maxlength' => 150, 'class' => 'form-control')); ?>
         <?php echo $form->error($model, 'username'); ?>
-        
+
                                                 </div>
-        
+
                                                 <div class="form-group">
     <?php echo $form->labelEx($model, 'password', array('class' => 'control-label')); ?>
-        
+
         <?php echo $form->passwordField($model, 'password', array('size' => 60, 'maxlength' => 150, 'class' => 'form-control')); ?>
         <?php echo $form->error($model, 'password'); ?>
-        
+
                                                 </div>
-        
+
     <?php echo CHtml::submitButton('Login', array('class' => 'btn btn-success')); ?>
-        
+
                                             </div>
-        
-        
+
+
     <?php $this->endWidget(); ?>
-                                        </div> form 
+                                        </div> form
                                     </div>
                                 </div>
                             </div>
@@ -251,8 +252,8 @@
                 <footer>
                     <div style="text-align: center;">
                         ------------------------------------------------------
-                    </div>  
-                </footer>       
+                    </div>
+                </footer>
             </div>
         </body>
 <?php } else { ?>
@@ -262,7 +263,7 @@
 
 
                 <!-- ERROR DIV -->
-                <div id="err"></div>            
+                <div id="err"></div>
                 <!---   END ERROR DIV -->
 
 
@@ -270,7 +271,7 @@
                 <div id="popupbgd"></div>
                 <div id="popup" class="popup">
 
-                </div>         
+                </div>
 
 
                 <header>
@@ -284,7 +285,7 @@
                             </div>
                             <div class="col-sm-4 text-right">
 
-                                <h2>Welcome <?php echo Yii::app()->user->name; ?> ! 
+                                <h2>Welcome <?php echo Yii::app()->user->name; ?> !
                                     <a href="<?php echo Yii::app()->createUrl("site/logout"); ?>" style="text-decoration: none; color: white;">
                                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/common/exit.png" style="width: 40px; height: 30px;"/> Logout
                                     </a>
@@ -292,7 +293,7 @@
                             </div>
                         </div>
 
-                    </div>                
+                    </div>
                 </header>
 
                 <section id="navigation">
@@ -309,7 +310,7 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-sm-16 text-left">
-                                    <div class="btn-group" role="group" aria-label="...">                                    
+                                    <div class="btn-group" role="group" aria-label="...">
                                         <a href="http://www.sabaragamuwahanda.lk" class="btn btn-danger"><span class="glyphicon glyphicon-home"></span> Website Home</a>
                                         <a href="<?php echo Yii::app()->createUrl("news"); ?>" class="btn btn-default"><span class="glyphicon glyphicon-home"></span> Admin Panel Home</a>
 
@@ -322,12 +323,12 @@
 
 
 
-                <section style="margin-top: 90px; padding: 0px 15px; z-index: -1000;">  
+                <section style="margin-top: 90px; padding: 0px 15px; z-index: -1000;">
                     <div class="container-fluid">
-                        <div class="row">                            
+                        <div class="row">
                             <div id="content_body" class="col-sm-16" style="margin-bottom: 50px;">
-    <?php echo $content; ?> 
-                            </div>                       
+    <?php echo $content; ?>
+                            </div>
 
                         </div>
                     </div>
@@ -338,12 +339,12 @@
                         <div class="row">
                             <div class="col-lg-16 col-md-16 col-sm-16 col-xs-16 text-center">
                                 <!--                Copyright by <a href="http://www.prologics.lk">Prologics It Solutions &COPY;</a>, Developed by <a href="https://lk.linkedin.com/in/viraj-jayasinghe-993bab5a" target="_blank">V</a>_<a href="#">M</a>_<a href="#">B</a> <br>Prologics Web Framework-->
-                                Project Studio &copy; 2017 
+                                Project Studio &copy; 2017
                                 Developed by <a href="#" target="_blank">Viraj Vimukthi</a> .
                             </div>
                         </div>
                     </div>
-                </footer>           
+                </footer>
 
             </div>
         </body>

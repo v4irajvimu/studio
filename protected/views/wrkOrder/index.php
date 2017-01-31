@@ -15,22 +15,12 @@ $(document).ready(function () {
 $(document).on("keyup",".qty",function(){
   var row = $(this).closest('tr');
   var selling = row.find('.selling').val();
-  var amount = parseFloat((selling !=='')?selling:0) * parseFloat(($(this).val() !=='')?$(this).val():0);
+  var amount = parseFloat((isNaN(selling))?0:selling) * parseFloat(($(this).val() !=='')?$(this).val():0);
   row.find('.amount').val(amount);
   cal_grand_total();
 });
-function cal_grand_total(){
-  var grandTot = 0;
-  $(".amount").each(function(){
-    var a = ($(this).val()!=='')?$(this).val():0;
-    grandTot += parseFloat(a);
-  });
-  $("#total").val(grandTot);
-}
 
-function cal_total(){
 
-}
 
 $(document).on("click", ".cust_row", function () {
   $("#customer_name").val($(this).attr('data-name'));
@@ -43,6 +33,45 @@ $(document).on("click", ".item_row", function () {
 });
 
 
+
+
+$(document).on("keyup", "#cust_search", function () {
+  getCustomerList();
+});
+$(document).on("keyup", "#item_search", function () {
+  getItemList();
+});
+$(document).on("change", "#wo_type", function () {
+  codeGen($(this).val());
+});
+$(document).on("click", ".delete_row", function (e) {
+  e.preventDefault();
+  delete_rows($(this));
+
+});
+// discount_type selection
+$(document).on("change", ".discount_type", function (e) {
+  var val = $('input[name=discount_type_id]:checked').val();
+  if(val =='1'){
+    $("#discount_percentage").show();
+    $("#discount").attr('readonly','true');
+    $("#discount").val('0');
+    $("#discount_percentage").focus();
+    cal_grand_total();
+  }
+  else{
+    $("#discount_percentage").hide();
+    $("#discount").removeAttr('readonly');
+    $("#discount").val('0');
+    $("#discount_percentage").val('0');
+    cal_grand_total();
+    $("#discount").focus();
+  }
+});
+
+$(document).on("keyup","#discount_percentage , #discount", function(){
+  cal_grand_total();
+});
 function item_add_grid(thisObj){
 
   var items_id = thisObj.attr('data-id');
@@ -100,31 +129,8 @@ function item_add_grid(thisObj){
 
 }
 
-$(document).on("keyup", "#cust_search", function () {
-  getCustomerList();
-});
-$(document).on("keyup", "#item_search", function () {
-  getItemList();
-});
-$(document).on("change", "#wo_type", function () {
-  codeGen($(this).val());
-});
-$(document).on("click", ".delete_row", function (e) {
-  e.preventDefault();
-  delete_rows($(this));
-});
-// discount_type selection
-$(document).on("change", ".discount_type", function (e) {
-  var val = $('input[name=discount_type_id]:checked').val();
-  if(val =='1'){
-    $("#discount_percentage").show();
-  }
-  else{
-    $("#discount_percentage").hide();
-  }
-});
-
 function delete_rows(thisObj){
+
   var start_row = thisObj.parents('tr').attr('row_id');
   var row_count=0;
 
@@ -146,10 +152,35 @@ function delete_rows(thisObj){
     $("#item_qty_"+i).val($("#item_qty_"+k).val());
     $("#item_amount_"+i).val($("#item_amount_"+k).val());
   }
-
+  cal_grand_total();
   $("#row_"+last_row).remove();
   var bfr_lst = parseFloat(last_row)-1;
   $("#row_"+bfr_lst).child('a').hide();
+
+}
+
+function cal_grand_total(){
+  alert('sdsd');
+  var grandTot = 0;
+  var radio = $('input[name=discount_type_id]:checked');
+  var discount = 0;
+
+  $(".amount").each(function(){
+    var a = ($(this).val()!=='')?$(this).val():0;
+    grandTot += parseFloat(a);
+  });
+  if(radio.val() == '1'){
+    var percentage = parseFloat($("#discount_percentage").val());
+    discount = grandTot  * (((isNaN(percentage))?0:parseFloat(percentage))/100);
+    $("#discount").val(discount);
+  }
+  else{
+    discount = parseFloat(($("#discount").val() !== '')?$("#discount").val():0);
+  }
+
+  grandTot -= discount;
+
+  $("#total").val(grandTot);
 }
 
 function codeGen(wo_type) {
@@ -307,7 +338,7 @@ function getItemList() {
                     <tr >
                       <td class="text-right">
                         <label class="radio-inline">
-                          <input class="discount_type" id="1" checked="checked" type="radio" name="discount_type_id" value="1">Percentage
+                          <input class="discount_type" id="1"  type="radio" name="discount_type_id" value="1">Percentage
                         </label>
                       </td>
                       <td>
@@ -315,7 +346,7 @@ function getItemList() {
                       </td>
                       <td>
                         <label class="radio-inline">
-                          <input class="discount_type" id="2" type="radio" name="discount_type_id" value="2">Value
+                          <input checked class="discount_type" id="2" type="radio" name="discount_type_id" value="2">Value
                         </label></td>
                         <td style="border-bottom: 1px double black; color:green;">
                           <input   type="text" id="discount" name="discount" class="form-control"/>
