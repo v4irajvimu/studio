@@ -51,11 +51,11 @@
       var selling = thisObj.attr('data-selling');
       var min_price = thisObj.attr('data-min_price');
       var max_price = thisObj.attr('data-max_price');
-      var row_id = 0;
+      var row_id = -1;
       var item_exists = false;
 
       $(".cl").each(function(){
-        row_id = parseFloat($(this).attr('row_id'))+1;
+        row_id = parseFloat($(this).attr('row_id'));
         if($("#item_id_"+row_id).val() == items_id){
           $("#item_qty_"+row_id).focus();
           item_exists = true;
@@ -65,7 +65,7 @@
 
       if(!item_exists){
         var tbl_row='';
-        var tbl_row_id = row_id;
+        var tbl_row_id = row_id+1;
 
         tbl_row += '<tr class="cl" row_id="'+tbl_row_id+'" id="row_'+tbl_row_id+'">';
         tbl_row += '<td>';
