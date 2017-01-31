@@ -1,0 +1,46 @@
+CREATE TABLE `studio`.`discout_type`( `id` TINYINT, `name` VARCHAR(20), `online` TINYINT(1) );
+
+ALTER TABLE `studio`.`discout_type` CHANGE `id` `id` TINYINT(4) NOT NULL, ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `studio`.`wrk_order` ADD COLUMN `discount_id` INT NULL AFTER `customer_name`, ADD CONSTRAINT `fk_wrk_order_discount_type1` FOREIGN KEY (`discount_id`) REFERENCES `studio`.`discout_type`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION; 
+
+ALTER TABLE `studio`.`wrk_order` ADD COLUMN `discount_type_id` INT NULL AFTER `customer_name`; 
+
+ALTER TABLE `studio`.`wrk_order` ADD FOREIGN KEY (`discount_type_id`) REFERENCES `studio`.`discout_type`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION; 
+
+ALTER TABLE `studio`.`wrk_order` ADD CONSTRAINT `fk_wrk_order_discount_type1` FOREIGN KEY (`discount_type_id`) REFERENCES `studio`.`discout_type`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION; 
+
+ALTER TABLE `studio`.`wrk_order` ADD CONSTRAINT `fk_wrk_order_discount_type1` FOREIGN KEY (`discount_type_id`) REFERENCES `studio`.`discout_type`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION; 
+
+ALTER TABLE `studio`.`wrk_order` ADD INDEX `fk_wrk_order_discount_type1_idx` (`discount_type_id`), ADD CONSTRAINT `fk_wrk_order_discount_type1` FOREIGN KEY (`discount_type_id`) REFERENCES `studio`.`discout_type`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE `studio`.`wrk_order` ADD FOREIGN KEY (`discount_type_id`) REFERENCES `studio`.`discout_type`(`id`); 
+
+ALTER TABLE `wrk_order` ADD FOREIGN KEY (`discount_type_id`) REFERENCES `discout_type`(`id`) ; 
+
+ALTER TABLE `studio`.`wrk_order` ADD FOREIGN KEY (`discount_type_id`) REFERENCES `studio`.`discout_type`(`id`); 
+
+ ALTER TABLE `studio`.`discout_type` CHANGE `id` `id` INT(4) NOT NULL;
+
+ALTER TABLE `studio`.`wrk_order` ADD FOREIGN KEY (`discount_type_id`) REFERENCES `studio`.`discout_type`(`id`); 
+
+ALTER TABLE `studio`.`wrk_order` ADD COLUMN `discount` DECIMAL(10,2) NULL AFTER `discount_type_id`; 
+
+ALTER TABLE `studio`.`wrk_order` ADD COLUMN `total` DECIMAL(10,2) NULL AFTER `discount`; 
+
+INSERT INTO `studio`.`discout_type`(`id`,`name`,`online`) VALUES ( NULL,'PERCENTAGE','1');
+
+INSERT INTO `studio`.`discout_type`(`id`,`name`,`online`) VALUES ( '1','PERCENTAGE','1'); 
+
+INSERT INTO `studio`.`discout_type`(`id`,`name`,`online`) VALUES ( '2',NULL,NULL); 
+
+UPDATE `studio`.`discout_type` SET `name`='VALUE',`online`='1' WHERE `id`='2'; 
+
+ALTER TABLE `studio`.`discout_type` CHANGE `id` `id` INT(4) NOT NULL AUTO_INCREMENT; 
+
+ALTER TABLE `studio`.`wrk_order` ADD COLUMN `discount_percentage` DECIMAL(10,2) NULL AFTER `total`; 
+
+ALTER TABLE `studio`.`wrk_order` CHANGE `discount_percentage` `discount_percentage` DECIMAL(10,2) DEFAULT 0 NULL; 
+
+ALTER TABLE `studio`.`discout_type` CHANGE `online` `online` TINYINT(1) DEFAULT 1 NULL;
+
