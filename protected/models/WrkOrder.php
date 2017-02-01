@@ -5,7 +5,6 @@
  *
  * The followings are the available columns in table 'wrk_order':
  * @property integer $id
- * @property string $name
  * @property string $code
  * @property string $eff_date
  * @property string $wo_type
@@ -15,12 +14,17 @@
  * @property integer $customer_id
  * @property string $created
  * @property string $customer_name
+ * @property integer $discount_type_id
+ * @property string $discount
+ * @property string $total
+ * @property string $discount_percentage
  *
  * The followings are the available model relations:
  * @property Payments[] $payments
  * @property Stock[] $stocks
  * @property Customer $customer
  * @property WoStatus $woStatus
+ * @property DiscoutType $discountType
  * @property WrkOrderHasItems[] $wrkOrderHasItems
  */
 class WrkOrder extends CActiveRecord
@@ -42,15 +46,15 @@ class WrkOrder extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('wo_status_id, customer_id', 'required'),
-			array('wo_status_id, customer_id', 'numerical', 'integerOnly'=>true),
-			array('name', 'length', 'max'=>45),
+			array('wo_status_id, customer_id, discount_type_id', 'numerical', 'integerOnly'=>true),
 			array('code', 'length', 'max'=>55),
 			array('wo_type', 'length', 'max'=>6),
 			array('remark, customer_name', 'length', 'max'=>255),
+			array('discount, total, discount_percentage', 'length', 'max'=>10),
 			array('eff_date, delivery_date, created', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, code, eff_date, wo_type, delivery_date, remark, wo_status_id, customer_id, created, customer_name', 'safe', 'on'=>'search'),
+			array('id, code, eff_date, wo_type, delivery_date, remark, wo_status_id, customer_id, created, customer_name, discount_type_id, discount, total, discount_percentage', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -66,6 +70,7 @@ class WrkOrder extends CActiveRecord
 			'stocks' => array(self::HAS_MANY, 'Stock', 'wrk_order_id'),
 			'customer' => array(self::BELONGS_TO, 'Customer', 'customer_id'),
 			'woStatus' => array(self::BELONGS_TO, 'WoStatus', 'wo_status_id'),
+			'discountType' => array(self::BELONGS_TO, 'DiscoutType', 'discount_type_id'),
 			'wrkOrderHasItems' => array(self::HAS_MANY, 'WrkOrderHasItems', 'wrk_order_id'),
 		);
 	}
@@ -77,7 +82,6 @@ class WrkOrder extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
 			'code' => 'Code',
 			'eff_date' => 'Eff Date',
 			'wo_type' => 'Wo Type',
@@ -87,6 +91,10 @@ class WrkOrder extends CActiveRecord
 			'customer_id' => 'Customer',
 			'created' => 'Created',
 			'customer_name' => 'Customer Name',
+			'discount_type_id' => 'Discount Type',
+			'discount' => 'Discount',
+			'total' => 'Total',
+			'discount_percentage' => 'Discount Percentage',
 		);
 	}
 
@@ -109,7 +117,6 @@ class WrkOrder extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('name',$this->name,true);
 		$criteria->compare('code',$this->code,true);
 		$criteria->compare('eff_date',$this->eff_date,true);
 		$criteria->compare('wo_type',$this->wo_type,true);
@@ -119,6 +126,10 @@ class WrkOrder extends CActiveRecord
 		$criteria->compare('customer_id',$this->customer_id);
 		$criteria->compare('created',$this->created,true);
 		$criteria->compare('customer_name',$this->customer_name,true);
+		$criteria->compare('discount_type_id',$this->discount_type_id);
+		$criteria->compare('discount',$this->discount,true);
+		$criteria->compare('total',$this->total,true);
+		$criteria->compare('discount_percentage',$this->discount_percentage,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

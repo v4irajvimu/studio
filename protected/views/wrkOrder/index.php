@@ -98,20 +98,20 @@ function item_add_grid(thisObj){
 
     tbl_row += '<tr class="cl" row_id="'+tbl_row_id+'" id="row_'+tbl_row_id+'">';
     tbl_row += '<td>';
-    tbl_row += '<input disabled type="text" id="item_name_'+tbl_row_id+'" name="woItem['+tbl_row_id+'][name]" value="'+name+'" class="form-control"/>';
+    tbl_row += '<input readonly type="text" id="item_name_'+tbl_row_id+'" name="woItem['+tbl_row_id+'][name]" value="'+name+'" class="form-control"/>';
     tbl_row += '<input type="hidden" id="item_id_'+tbl_row_id+'" name="woItem['+tbl_row_id+'][items_id]" value="'+items_id+'" class="form-control"/>';
     tbl_row += '<input  type="hidden" id="item_cost_'+tbl_row_id+'" name="woItem['+tbl_row_id+'][cost]" value="'+cost+'" class="form-control"/>';
     tbl_row += '<input  type="hidden" id="item_min_price_'+tbl_row_id+'" name="woItem['+tbl_row_id+'][min_price]" value="'+min_price+'" class="form-control"/>';
     tbl_row += '<input  type="hidden" id="item_max_price_'+tbl_row_id+'" name="woItem['+tbl_row_id+'][max_price]" value="'+max_price+'" class="form-control"/>';
     tbl_row += '</td>';
     tbl_row += '<td>';
-    tbl_row += '<input disabled type="text" id="item_selling_'+tbl_row_id+'" name="woItem['+tbl_row_id+'][selling]" value="'+selling+'" class="selling form-control"/>';
+    tbl_row += '<input readonly type="text" id="item_selling_'+tbl_row_id+'" name="woItem['+tbl_row_id+'][selling]" value="'+selling+'" class="selling form-control"/>';
     tbl_row += '</td>';
     tbl_row += '<td>';
-    tbl_row += '<input  type="text" id="item_qty_'+tbl_row_id+'" name="woItem['+tbl_row_id+'][qty]" value="0" class="qty form-control"/>';
+    tbl_row += '<input  type="text" id="item_qty_'+tbl_row_id+'" name="woItem['+tbl_row_id+'][qty]" value="1" class="qty form-control"/>';
     tbl_row += '</td>';
     tbl_row += '<td>';
-    tbl_row += '<input  type="text" id="item_amount_'+tbl_row_id+'" name="woItem['+tbl_row_id+'][amount]" value="0" class="amount form-control"/>';
+    tbl_row += '<input  type="text" id="item_amount_'+tbl_row_id+'" name="woItem['+tbl_row_id+'][amount]" value="" class="amount form-control"/>';
     tbl_row += '</td>';
     tbl_row += '<td>';
     tbl_row += '<a href="#" style="display: none;" class="btn btn-danger btn-md delete_row" ><span class="glyphicon glyphicon-trash"></span></a>';
@@ -240,10 +240,6 @@ function getItemList() {
                     <label>Code: </label>
                     <input readonly type="text" id="code" name="code" class="form-control" required/>
                   </div>
-                  <div class="col-sm-6">
-                    <label>Name: </label>
-                    <input type="text" id="name" name="name" class="form-control" required/>
-                  </div>
                 </div>
                 <div class="row">
                   <div class="col-sm-8">
@@ -289,12 +285,9 @@ function getItemList() {
                 </div>
                 <div class="row">
                   <div class="col-sm-3">
-                    <label>Eff. Date: </label>
-                    <input type="text" id="eff_date" name="eff_date" value="<?= date('Y-m-d') ?>" class="form-control datepicker" required/>
-                  </div>
-                  <div class="col-sm-3">
                     <label>Delivery Date: </label>
-                    <input type="text" id="delivery_date" name="delivery_date" class="form-control datepicker" required/>
+                    <input type="text" id="delivery_date" name="delivery_date" value="<?= date('Y-m-d') ?>" class="form-control datepicker" required/>
+                    <input type="hidden" id="eff_date" name="eff_date" value="<?= date('Y-m-d') ?>" class="form-control datepicker" required/>
                   </div>
                 </div>
                 <div class="row">
@@ -357,7 +350,7 @@ function getItemList() {
                         <td></td>
                         <td></td>
                         <td style="border-bottom: 1px double black;">
-                          <input disabled=""  type="text" id="total" name="total" class="form-control"/>
+                          <input readonly type="text" id="total" name="total" class="form-control"/>
                         </td>
                         <td></td>
                       </tr>
@@ -378,7 +371,7 @@ function getItemList() {
                           <h4 class="modal-title">ITEMS LIST</h4>
                         </div>
                         <div class="modal-body">
-                          <input  type="text" id="item_search" name="" class="form-control" />
+                          <input  type="text" id="item_search" class="form-control" />
                           <table class="table table-fixed">
                             <thead>
                               <tr>
@@ -436,7 +429,7 @@ function getItemList() {
       success: showResponse,
       complete: function () {
         $("#WrkOrder-form").resetForm();
-        $("#WrkOrder-add").attr("disabled", false);
+        $("#WrkOrder-add").attr("readonly", false);
         $.fn.yiiListView.update('WrkOrder-list');
         $("#WrkOrder-popup").fadeOut();
 
@@ -558,7 +551,14 @@ function getItemList() {
     <div class="container-fluid">
 
       <div class="row">
-        <div class="col-sm-15 headerdiv">Your Column Name</div>
+        <div class="col-sm-2 headerdiv">Code</div>
+        <div class="col-sm-2 headerdiv">Delivery Date</div>
+        <div class="col-sm-2 headerdiv">Customer</div>
+        <div class="col-sm-2 headerdiv">Gross(LKR)</div>
+        <div class="col-sm-2 headerdiv">Discount(LKR)</div>
+        <div class="col-sm-2 headerdiv">Net(LKR)</div>
+        <div class="col-sm-2 headerdiv">Paid(LKR)</div>
+        <div class="col-sm-1 headerdiv">Balance(LKR)</div>
         <div class="col-sm-1 headerdiv">&nbsp;</div>
       </div>
 

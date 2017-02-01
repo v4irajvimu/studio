@@ -55,7 +55,7 @@ public function actioncodegen(){
 	}
 	$str = ++$count;
 	$paded = str_pad($str,5,"0",STR_PAD_LEFT);
-	$code = $pre."_".date('d')."".date('m')."".date('Y')."_".$paded;
+	$code = $pre."_".date('d')."".date('m')."_".$paded;
 	//print_r($code);
 	echo $code;
 }
@@ -131,13 +131,12 @@ public function actionCreate()
 
 		$model = new WrkOrder;
 		// Add data to wrk order table
-		$model->name = $_POST['name'];
 		$model->code = $_POST['code'];
 		$model->eff_date = $_POST['eff_date'];
 		$model->wo_type = $_POST['wo_type'];
 		$model->delivery_date = $_POST['delivery_date'];
 		$model->remark = $_POST['remark'];
-		$model->wo_status_id = $_POST['wo_status_id'];
+		$model->wo_status_id = 1;
 		$model->customer_id = $_POST['customer_id'];
 		$model->created = date('Y-m-d H:i:s');
 		$model->customer_name = $_POST['customer_name'];
@@ -147,7 +146,8 @@ public function actionCreate()
 		$model->discount_percentage = $_POST['discount_percentage'];
 
 
-		if (!$model->save()) {
+		$save = $model->save();
+		if (!$save) {
 
 			$er = $model->getErrors();
 			$err_txt = "";
@@ -159,7 +159,13 @@ public function actionCreate()
 		}
 		else{
 			$wo_id = $model->id;
-			
+			foreach ($_POST['woItem'] as $value) {
+				$wrkOrderItemModel = new WrkOrderHasItems;
+				$wrkOrderItemModel->attributes = $value;
+				$wrkOrderItemModel->wrk_order_id =$wo_id;
+				$wrkOrderItemModel->save();
+			}
+			//die();
 		}
 
 		echo "Successfully Created";
@@ -231,7 +237,7 @@ public function actionIndex()
 	if (empty($_GET['val'])) {
 		$searchtxt = "";
 	} else {
-		$searchtxt = " WHERE (name LIKE '%" . $_GET['val'] . "%' OR code LIKE '%" . $_GET['val'] . "%') ";
+		$searchtxt = " WHERE (remark LIKE '%" . $_GET['val'] . "%' OR code LIKE '%" . $_GET['val'] . "%') ";
 	}
 
 	if (empty($_GET['pages'])) {
@@ -241,7 +247,14 @@ public function actionIndex()
 	}
 
 
-	$sql = "SELECT * FROM wrk_order   $searchtxt ORDER BY name ASC ";
+	$sql = "SELECT wo.*,c.name AS cust_name,
+					(SELECT IFNULL(SUM(amount),0) FROM payments p WHERE p.wrk_order_id = wo.id) AS paid,
+					wos.name as status
+					FROM wrk_order wo
+					JOIN customer c ON c.id=wo.customer_id
+					JOIN wo_status wos ON wos.id = wo.wo_status_id
+					$searchtxt ORDER BY wo.code ASC ";
+
 	$count = Yii::app()->db->createCommand($sql)->query()->rowCount;
 	$dataProvider = new CSqlDataProvider($sql, array(
 		'totalItemCount' => $count,

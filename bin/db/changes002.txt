@@ -1,0 +1,7 @@
+ALTER TABLE `studio`.`wrk_order` DROP COLUMN `name`; 
+
+ALTER TABLE `studio`.`wrk_order` CHANGE `delivery_date` `delivery_date` DATE NULL; 
+
+/*[11:26:09 PM][92 ms]*/ UPDATE `studio`.`wo_status` SET `name` = 'HALF PAID' WHERE `id` = '2'; 
+/*[11:26:17 PM][142 ms]*/ UPDATE `studio`.`wo_status` SET `name` = 'COMPLETED' WHERE `id` = '3'; 
+/*[11:26:36 PM][113 ms]*/ INSERT INTO `studio`.`wo_status` (`name`) VALUES ('CANCELED'); 
