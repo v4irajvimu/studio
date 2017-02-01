@@ -160,7 +160,6 @@ function delete_rows(thisObj){
 }
 
 function cal_grand_total(){
-  alert('sdsd');
   var grandTot = 0;
   var radio = $('input[name=discount_type_id]:checked');
   var discount = 0;
@@ -222,7 +221,7 @@ function getItemList() {
             <ul class="steps">
               <li data-step="1">WO Details.</li>
               <li data-step="2">WO Items</li>
-              <li data-step="3">Payments</li>
+              <!-- <li data-step="3">Payments</li> -->
             </ul>
             <div class="steps-content">
               <div data-step="1">
@@ -364,6 +363,11 @@ function getItemList() {
                       </tr>
                     </tbody>
                   </table>
+                  <div class="row btn-row">
+                    <div class="col-sm-16">
+                      <button id="WrkOrder-submitbtn" class="btn btn-primary form-control">Create</button>
+                    </div>
+                  </div>
                   <!-- Modal Item list-->
                   <div id="item_modal" class="modal fade" role="dialog">
                     <div class="modal-dialog">
@@ -393,18 +397,10 @@ function getItemList() {
                     </div>
                   </div>
                 </div>
-                <div data-step="3">
+                <!-- <div data-step="3">
 
-                </div>
+                </div> -->
 
-              </div>
-            </div>
-
-
-
-            <div class="row btn-row">
-              <div class="col-sm-16">
-                <button id="WrkOrder-submitbtn" class="btn btn-default">Create</button>
               </div>
             </div>
           </form>
