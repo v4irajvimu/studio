@@ -24,8 +24,7 @@ class WrkOrderController extends Controller
 	* This method is used by the 'accessControl' filter.
 	* @return array access control rules
 	*/
-	public function accessRules()
-	{
+	public function accessRules(){
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 			'actions'=>array('index','view','jsondata','create','update','delete','cust_list','codegen','item_list'),
@@ -90,6 +89,7 @@ public function actionitem_list() {
 	foreach ($item_det as $value) {
 		echo '<tr>';
 		echo '<td>'.$value['name'].'</td>';
+		echo '<td>'.$value['cost'].'</td>';
 		echo '<td>'.$value['selling'].'</td>';
 		echo '<td><button type="button"
 		data-name="'.$value['name'].'"
@@ -98,6 +98,7 @@ public function actionitem_list() {
 		data-selling="'.$value['selling'].'"
 		data-min_price="'.$value['min_price'].'"
 		data-max_price="'.$value['max_price'].'"
+		data-supplier_id="'.$value['supplier_id'].'"
 		class="item_row btn btn-info btn-sm"><span class="glyphicon glyphicon-plus"></span></button></td>';
 		echo '</tr>';
 
@@ -105,7 +106,8 @@ public function actionitem_list() {
 }
 
 public function actionjsondata($id) {
-	$data = WrkOrder::model()->findByPk($id);
+	$data['sum'] = WrkOrder::model()->findByPk($id);
+	$data['det'] = WrkOrderHasItems::model()->findAllByAttributes(array('wrk_order_id'=>$id));
 	$output = CJSON::encode($data);
 	echo $output;
 }
@@ -198,6 +200,16 @@ public function actionUpdate($id)
 			throw new Exception($err_txt);
 
 		}
+		else{
+			$wo_id = $model->id;
+			WrkOrderHasItems::model()->deleteAll("wrk_order_id = '$wo_id'");
+			foreach ($_POST['woItem'] as $value) {
+				$wrkOrderItemModel = new WrkOrderHasItems;
+				$wrkOrderItemModel->attributes = $value;
+				$wrkOrderItemModel->wrk_order_id =$wo_id;
+				$wrkOrderItemModel->save();
+			}
+		}
 
 		echo "Successfully Created";
 	} catch (Exception $exc) {
@@ -206,6 +218,19 @@ public function actionUpdate($id)
 
 
 }
+
+/**
+* Stock Update
+**/
+
+public function stockUpdate(){
+	// Delete All records according to id if exists.
+
+
+	// Insert latest updated records.
+}
+
+
 
 /**
 * Deletes a particular model.

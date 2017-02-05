@@ -44,7 +44,7 @@ class Stock extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('trans_type_id, items_id, supplier_id, wrk_order_id', 'required'),
+			array('trans_type_id, items_id, supplier_id', 'required'),
 			array('trans_type_id, items_id, supplier_id, qty_in, qty_out, online, wrk_order_id', 'numerical', 'integerOnly'=>true),
 			array('cost, selling, amount', 'length', 'max'=>10),
 			array('remark', 'length', 'max'=>100),
