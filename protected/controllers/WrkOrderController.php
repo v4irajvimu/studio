@@ -161,19 +161,46 @@ public function actionCreate()
 		}
 		else{
 			$wo_id = $model->id;
+			$wo_type = $model->wo_type;
+			if($wo_type == "CASH"){
+				$trans_type_id = 2;
+			}elseif ($wo_type == "CREDIT") {
+				$trans_type_id = 3;
+			}
 			foreach ($_POST['woItem'] as $value) {
 				$wrkOrderItemModel = new WrkOrderHasItems;
 				$wrkOrderItemModel->attributes = $value;
 				$wrkOrderItemModel->wrk_order_id =$wo_id;
 				$wrkOrderItemModel->save();
+
+				$supplier_id = Items::model()->findByPk($value['items_id'])->supplier_id;
+				$this->stockUpdate($trans_type_id, $value['items_id'], $supplier_id, null, $value['qty'], date('Y-m-d'), $value['cost'], $value['selling'], $value['amount'], null ,$wo_type,1,date('Y-m-d H:i:s'),$wo_id);
 			}
-			//die();
 		}
 
 		echo "Successfully Created";
 	} catch (Exception $exc) {
 		echo $exc->getMessage();
 	}
+}
+
+public function stockUpdate($trans_type_id, $items_id, $supplier_id, $qty_in, $qty_out, $eff_date, $cost, $selling, $amount, $remark ,$wo_type,$online,$created,$wrk_order_id){
+	$model = new Stock;
+	$model->trans_type_id = $trans_type_id;
+	$model->items_id= $items_id;
+	$model->supplier_id= $supplier_id;
+	$model->qty_in= $qty_in;
+	$model->qty_out= $qty_out;
+	$model->eff_date= $eff_date;
+	$model->cost= $cost;
+	$model->selling= $selling;
+	$model->amount= $amount;
+	$model->remark= $remark;
+	$model->wo_type= $wo_type;
+	$model->online= $online;
+	$model->created= $created;
+	$model->wrk_order_id= $wrk_order_id;
+	$save = $model->save();
 }
 
 /**
@@ -223,12 +250,7 @@ public function actionUpdate($id)
 * Stock Update
 **/
 
-public function stockUpdate(){
-	// Delete All records according to id if exists.
 
-
-	// Insert latest updated records.
-}
 
 
 

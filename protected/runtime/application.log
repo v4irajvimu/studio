@@ -11866,3 +11866,11 @@ in C:\xampp\htdocs\studio\protected\views\stock\_view.php (27)
 in C:\xampp\htdocs\studio\protected\views\stock\index.php (428)
 in C:\xampp\htdocs\studio\protected\controllers\StockController.php (204)
 >>>>>>> 894e52efb6d811921dfdff8057512a66f7833452
+2017/02/06 22:54:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
