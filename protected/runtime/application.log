@@ -11142,10 +11142,147 @@ Stack trace:
 #15 {main}
 REQUEST_URI=/studio/wrkOrder
 ---
+<<<<<<< HEAD
 2017/02/02 08:45:11 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'name' in 'order clause'. The SQL statement executed was: SELECT * FROM stock WHERE online = 1  ORDER BY name ASC .
 in C:\xampp\htdocs\studio\protected\controllers\StockController.php (169)
 in C:\xampp\htdocs\studio\index.php (19)
 2017/02/02 08:45:11 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'name' in 'order clause'. The SQL statement executed was: SELECT * FROM stock WHERE online = 1  ORDER BY name ASC ' in C:\xampp\htdocs\studio\yii\framework\db\CDbCommand.php:543
+=======
+2017/02/04 16:17:39 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`studio`.`wrk_order_has_items`, CONSTRAINT `fk_wrk_order_has_items_wrk_order1` FOREIGN KEY (`wrk_order_id`) REFERENCES `wrk_order` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: DELETE FROM `wrk_order` WHERE `wrk_order`.`id`=3.
+in C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php (218)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/04 21:04:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/04 16:34:28 [error] [exception.CException] exception 'CException' with message 'WrkOrderHasItems and its behaviors do not have a method or closure named "findAttributes".' in C:\xampp\htdocs\studio\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\db\ar\CActiveRecord.php(227): CComponent->__call('findAttributes', Array)
+#1 C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php(109): CActiveRecord->__call('findAttributes', Array)
+#2 C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php(109): WrkOrderHasItems->findAttributes(Array)
+#3 [internal function]: WrkOrderController->actionjsondata('3')
+#4 C:\xampp\htdocs\studio\yii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(WrkOrderController), Array)
+#5 C:\xampp\htdocs\studio\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(WrkOrderController), Object(ReflectionMethod), Array)
+#6 C:\xampp\htdocs\studio\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): CController->run('jsondata')
+#15 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('WrkOrder/jsonda...')
+#16 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#18 {main}
+REQUEST_URI=/studio/WrkOrder/jsondata/3
+HTTP_REFERER=http://localhost/studio/wrkOrder
+---
+2017/02/04 16:34:56 [error] [exception.CException] exception 'CException' with message 'WrkOrderHasItems and its behaviors do not have a method or closure named "findAttributes".' in C:\xampp\htdocs\studio\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\db\ar\CActiveRecord.php(227): CComponent->__call('findAttributes', Array)
+#1 C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php(109): CActiveRecord->__call('findAttributes', Array)
+#2 C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php(109): WrkOrderHasItems->findAttributes(Array)
+#3 [internal function]: WrkOrderController->actionjsondata('3')
+#4 C:\xampp\htdocs\studio\yii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(WrkOrderController), Array)
+#5 C:\xampp\htdocs\studio\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(WrkOrderController), Object(ReflectionMethod), Array)
+#6 C:\xampp\htdocs\studio\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): CController->run('jsondata')
+#15 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('WrkOrder/jsonda...')
+#16 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#18 {main}
+REQUEST_URI=/studio/WrkOrder/jsondata/3
+HTTP_REFERER=http://localhost/studio/wrkOrder
+---
+2017/02/04 16:35:10 [error] [exception.CException] exception 'CException' with message 'WrkOrderHasItems and its behaviors do not have a method or closure named "findAttributes".' in C:\xampp\htdocs\studio\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\db\ar\CActiveRecord.php(227): CComponent->__call('findAttributes', Array)
+#1 C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php(109): CActiveRecord->__call('findAttributes', Array)
+#2 C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php(109): WrkOrderHasItems->findAttributes(Array)
+#3 [internal function]: WrkOrderController->actionjsondata('3')
+#4 C:\xampp\htdocs\studio\yii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(WrkOrderController), Array)
+#5 C:\xampp\htdocs\studio\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(WrkOrderController), Object(ReflectionMethod), Array)
+#6 C:\xampp\htdocs\studio\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): CController->run('jsondata')
+#15 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('WrkOrder/jsonda...')
+#16 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#18 {main}
+REQUEST_URI=/studio/WrkOrder/jsondata/3
+HTTP_REFERER=http://localhost/studio/wrkOrder
+---
+2017/02/04 21:06:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/04 21:16:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/04 21:18:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/04 21:43:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/05 02:58:16 [warning] [application] Failed to set unsafe attribute "woItem" of "WrkOrder".
+in C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php (189)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/05 02:58:52 [warning] [application] Failed to set unsafe attribute "woItem" of "WrkOrder".
+in C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php (189)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/05 03:02:53 [warning] [application] Failed to set unsafe attribute "woItem" of "WrkOrder".
+in C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php (188)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/05 03:10:16 [warning] [application] Failed to set unsafe attribute "woItem" of "WrkOrder".
+in C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php (188)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/05 03:10:42 [warning] [application] Failed to set unsafe attribute "woItem" of "WrkOrder".
+in C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php (188)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/05 04:37:45 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'name' in 'order clause'. The SQL statement executed was: SELECT * FROM stock WHERE online = 1  ORDER BY name ASC .
+in C:\xampp\htdocs\studio\protected\controllers\StockController.php (169)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/05 04:37:45 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'name' in 'order clause'. The SQL statement executed was: SELECT * FROM stock WHERE online = 1  ORDER BY name ASC ' in C:\xampp\htdocs\studio\yii\framework\db\CDbCommand.php:543
+>>>>>>> 5bc343a11696875bf959056adc349b1e22819c06
 Stack trace:
 #0 C:\xampp\htdocs\studio\yii\framework\db\CDbCommand.php(377): CDbCommand->queryInternal('', 0, Array)
 #1 C:\xampp\htdocs\studio\protected\controllers\StockController.php(169): CDbCommand->query()
@@ -11164,6 +11301,7 @@ Stack trace:
 #14 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
 #15 {main}
 REQUEST_URI=/studio/stock
+<<<<<<< HEAD
 HTTP_REFERER=http://localhost/studio/package
 ---
 2017/02/02 08:45:38 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'online' in 'where clause'. The SQL statement executed was: SELECT * FROM company WHERE online = 1  ORDER BY name ASC .
@@ -11213,4 +11351,304 @@ Stack trace:
 #15 {main}
 REQUEST_URI=/studio/stock
 HTTP_REFERER=http://localhost/studio/supplier
+=======
+HTTP_REFERER=http://localhost/studio/wrkOrder
+---
+2017/02/05 08:55:43 [warning] [application] Failed to set unsafe attribute "discount_percentage" of "Stock".
+in C:\xampp\htdocs\studio\protected\controllers\StockController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/05 08:55:43 [warning] [application] Failed to set unsafe attribute "discount_type_id" of "Stock".
+in C:\xampp\htdocs\studio\protected\controllers\StockController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/05 08:55:43 [warning] [application] Failed to set unsafe attribute "discount" of "Stock".
+in C:\xampp\htdocs\studio\protected\controllers\StockController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/05 08:55:43 [warning] [application] Failed to set unsafe attribute "total" of "Stock".
+in C:\xampp\htdocs\studio\protected\controllers\StockController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/05 08:55:49 [warning] [application] Failed to set unsafe attribute "discount_percentage" of "Stock".
+in C:\xampp\htdocs\studio\protected\controllers\StockController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/05 08:55:49 [warning] [application] Failed to set unsafe attribute "discount_type_id" of "Stock".
+in C:\xampp\htdocs\studio\protected\controllers\StockController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/05 08:55:49 [warning] [application] Failed to set unsafe attribute "discount" of "Stock".
+in C:\xampp\htdocs\studio\protected\controllers\StockController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/05 08:55:49 [warning] [application] Failed to set unsafe attribute "total" of "Stock".
+in C:\xampp\htdocs\studio\protected\controllers\StockController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/05 08:55:52 [warning] [application] Failed to set unsafe attribute "discount_percentage" of "Stock".
+in C:\xampp\htdocs\studio\protected\controllers\StockController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/05 08:55:52 [warning] [application] Failed to set unsafe attribute "discount_type_id" of "Stock".
+in C:\xampp\htdocs\studio\protected\controllers\StockController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/05 08:55:52 [warning] [application] Failed to set unsafe attribute "discount" of "Stock".
+in C:\xampp\htdocs\studio\protected\controllers\StockController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/05 08:55:52 [warning] [application] Failed to set unsafe attribute "total" of "Stock".
+in C:\xampp\htdocs\studio\protected\controllers\StockController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/05 08:55:55 [warning] [application] Failed to set unsafe attribute "discount_percentage" of "Stock".
+in C:\xampp\htdocs\studio\protected\controllers\StockController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/05 08:55:55 [warning] [application] Failed to set unsafe attribute "discount_type_id" of "Stock".
+in C:\xampp\htdocs\studio\protected\controllers\StockController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/05 08:55:55 [warning] [application] Failed to set unsafe attribute "discount" of "Stock".
+in C:\xampp\htdocs\studio\protected\controllers\StockController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/05 08:55:55 [warning] [application] Failed to set unsafe attribute "total" of "Stock".
+in C:\xampp\htdocs\studio\protected\controllers\StockController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/05 14:19:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/05 20:22:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/05 22:00:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/05 22:01:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/05 22:01:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/05 22:43:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/jquery.notify.js".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/jquery.notify.js
+HTTP_REFERER=http://localhost/studio/wrkOrder
+---
+2017/02/05 22:43:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/jquery.notify.js".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/jquery.notify.js
+HTTP_REFERER=http://localhost/studio/stock
+---
+2017/02/05 22:43:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/jquery.notify.js".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/jquery.notify.js
+HTTP_REFERER=http://localhost/studio/stock
+---
+2017/02/05 22:43:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/jquery.notify.js".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/jquery.notify.js
+HTTP_REFERER=http://localhost/studio/stock
+---
+2017/02/05 22:43:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/jquery.notify.js".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/jquery.notify.js
+HTTP_REFERER=http://localhost/studio/stock
+---
+2017/02/05 22:44:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/jquery.notify.js".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/jquery.notify.js
+HTTP_REFERER=http://localhost/studio/stock
+---
+2017/02/05 22:45:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/jquery.notify.js".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/jquery.notify.js
+HTTP_REFERER=http://localhost/studio/stock
+---
+2017/02/05 22:45:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/jquery.notify.js".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/jquery.notify.js
+HTTP_REFERER=http://localhost/studio/stock
+---
+2017/02/05 22:45:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/jquery.notify.js".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/jquery.notify.js
+HTTP_REFERER=http://localhost/studio/stock
+---
+2017/02/05 22:45:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/jquery.notify.js".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/jquery.notify.js
+HTTP_REFERER=http://localhost/studio/stock
+---
+2017/02/05 22:49:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/jquery.notify.js".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/jquery.notify.js
+HTTP_REFERER=http://localhost/studio/stock
+---
+2017/02/05 22:49:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/jquery.notify.js".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/jquery.notify.js
+HTTP_REFERER=http://localhost/studio/stock
+---
+2017/02/05 22:49:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/jquery.notify.js".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/jquery.notify.js
+HTTP_REFERER=http://localhost/studio/stock
+---
+2017/02/05 22:50:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/jquery.notify.js".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/jquery.notify.js
+HTTP_REFERER=http://localhost/studio/stock
+---
+2017/02/05 22:50:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/jquery.notify.js".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/jquery.notify.js
+HTTP_REFERER=http://localhost/studio/stock
+---
+2017/02/05 22:51:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/jquery.notify.js".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/jquery.notify.js
+HTTP_REFERER=http://localhost/studio/stock
+---
+2017/02/05 22:52:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/jquery.notify.js".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/jquery.notify.js
+HTTP_REFERER=http://localhost/studio/stock
+---
+2017/02/06 00:10:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/06 00:16:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/05 19:46:57 [error] [php] Undefined index: items_id (C:\xampp\htdocs\studio\protected\controllers\StockController.php:77)
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): StockController->runAction()
+#1 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): StockController->filterAccessControl()
+#4 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): StockController->runActionWithFilters()
+#7 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): StockController->run()
+#8 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\studio\index.php(19): CWebApplication->run()
+REQUEST_URI=/studio/Stock/create
+in C:\xampp\htdocs\studio\protected\controllers\StockController.php (77)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/06 00:21:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/06 00:24:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/06 00:25:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+>>>>>>> 5bc343a11696875bf959056adc349b1e22819c06
 ---

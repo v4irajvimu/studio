@@ -111,7 +111,7 @@ function item_add_grid(thisObj){
     tbl_row += '<input  type="text" id="item_qty_'+tbl_row_id+'" name="woItem['+tbl_row_id+'][qty]" value="1" class="qty form-control"/>';
     tbl_row += '</td>';
     tbl_row += '<td>';
-    tbl_row += '<input  type="text" id="item_amount_'+tbl_row_id+'" name="woItem['+tbl_row_id+'][amount]" value="" class="amount form-control"/>';
+    tbl_row += '<input  type="text" id="item_amount_'+tbl_row_id+'" name="woItem['+tbl_row_id+'][amount]" value="'+selling+'" class="amount form-control"/>';
     tbl_row += '</td>';
     tbl_row += '<td>';
     tbl_row += '<a href="#" style="display: none;" class="btn btn-danger btn-md delete_row" ><span class="glyphicon glyphicon-trash"></span></a>';
@@ -126,7 +126,7 @@ function item_add_grid(thisObj){
     $(".delete_row").show();
     $("#item_qty_"+tbl_row_id).focus();
   }
-
+  cal_grand_total();
 }
 
 function delete_rows(thisObj){
@@ -375,7 +375,8 @@ function getItemList() {
                           <table class="table table-fixed">
                             <thead>
                               <tr>
-                                <th class="col-sm-8">Item</th>
+                                <th class="col-sm-6">Item</th>
+                                <th class="col-sm-2">Cost</th>
                                 <th class="col-sm-2">Selling</th>
                                 <th class="col-sm-2">&emsp;</th>
                               </tr>
@@ -454,10 +455,46 @@ function getItemList() {
 
     //Handle JSON DATA to Update FORM
     $.getJSON("<?php echo Yii::app()->createUrl('WrkOrder/jsondata') ?>/" + id).done(function (data) {
-      $.each(data, function (i, item) {
+      //alert(data.det.length);
+      $.each(data.sum, function (i, item) {
         $("#WrkOrder-form #" + i).val(item);
       });
+      $("#item_body").html('');
+      for(var i=0; i<data.det.length;i++){
+        tbl_row='';
+        tbl_row += '<tr class="cl" row_id="'+i+'" id="row_'+i+'">';
+        tbl_row += '<td>';
+        tbl_row += '<input readonly type="text" id="item_name_'+i+'" name="woItem['+i+'][name]" value="'+data.det[i].name+'" class="form-control"/>';
+        tbl_row += '<input type="hidden" id="item_id_'+i+'" name="woItem['+i+'][items_id]" value="'+data.det[i].items_id+'" class="form-control"/>';
+        tbl_row += '<input  type="hidden" id="item_cost_'+i+'" name="woItem['+i+'][cost]" value="'+data.det[i].cost+'" class="form-control"/>';
+        tbl_row += '<input  type="hidden" id="item_min_price_'+i+'" name="woItem['+i+'][min_price]" value="'+data.det[i].min_price+'" class="form-control"/>';
+        tbl_row += '<input  type="hidden" id="item_max_price_'+i+'" name="woItem['+i+'][max_price]" value="'+data.det[i].max_price+'" class="form-control"/>';
+        tbl_row += '</td>';
+        tbl_row += '<td>';
+        tbl_row += '<input readonly type="text" id="item_selling_'+i+'" name="woItem['+i+'][selling]" value="'+data.det[i].selling+'" class="selling form-control"/>';
+        tbl_row += '</td>';
+        tbl_row += '<td>';
+        tbl_row += '<input  type="text" id="item_qty_'+i+'" name="woItem['+i+'][qty]" value="'+data.det[i].qty+'" class="qty form-control"/>';
+        tbl_row += '</td>';
+        tbl_row += '<td>';
+        tbl_row += '<input  type="text" id="item_amount_'+i+'" name="woItem['+i+'][amount]" value="'+data.det[i].amount+'" class="amount form-control"/>';
+        tbl_row += '</td>';
+        tbl_row += '<td>';
+        tbl_row += '<a href="#" style="display: none;" class="btn btn-danger btn-md delete_row" ><span class="glyphicon glyphicon-trash"></span></a>';
+        tbl_row += '</td>';
+        tbl_row += '<a href="#" data-toggle="modal" data-target="#item_modal" class="btn btn-info form-control" >';
+        tbl_row += '<span class="glyphicon glyphicon-plus"></span>';
+        tbl_row += '</a>';
+        tbl_row += '</td>';
+        tbl_row += '</tr>';
+
+        $("#item_body").append(tbl_row);
+        $(".delete_row").show();
+        $("#item_qty_"+i).focus();
+      }
+
       $("#WrkOrder-form").attr("action", "<?php echo Yii::app()->createUrl('WrkOrder/update') ?>/" + id);
+      cal_grand_total();
     });
 
     $("#WrkOrder-popup").show();

@@ -22,7 +22,7 @@
 
             <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/jquery.form.js'); ?>
             <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/jquery.validate.js'); ?>
-            <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/jquery.number.min.js'); ?> 
+            <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/jquery.number.min.js'); ?>
 
             <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/jquery.inputmask.js'); ?>
             <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/jquery.inputmask.numeric.extensions.js'); ?>
@@ -36,7 +36,8 @@
             <!-- Autocomplete JS-->
             <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/jquery.autocomplete.js'); ?>
 
-
+            <!-- Notify.js -->
+            <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/notify.js'); ?>
 
             <!-- Bootstrap CSS 3.1.1 -->
             <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/bootstrap.css" />
@@ -108,6 +109,18 @@
                         $("#err").clearQueue();
                         $("#err").finish();
                     });
+
+
+
+                }
+
+                function notifyMe(text,type){
+                  $.notify(text,
+                    { position:"right bottom",
+                      style: 'bootstrap',
+                      className: type
+                    }
+                  );
 
                 }
 
@@ -274,9 +287,12 @@
                 </div>
 
 
+
                 <header>
                     <div class="container-fluid">
+
                         <div class="row">
+
                             <div class="col-sm-10">
                                 <h2> <?php echo Yii::app()->params['system_name']; ?></h2>
                             </div>
