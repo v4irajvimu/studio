@@ -44,8 +44,8 @@ class CompanyController extends Controller
 			),
 		);
 	}
-        
-        
+
+
         public function actionjsondata($id) {
                 $data = Company::model()->findByPk($id);
                 $output = CJSON::encode($data);
@@ -69,14 +69,14 @@ class CompanyController extends Controller
 	 */
 	public function actionCreate()
 	{
-		try {           
-            
+		try {
+
                     $model = new Company;
 
                     $model->attributes = $_POST;
 
                     if (!$model->save()) {
-                    
+
                         $er = $model->getErrors();
                         $err_txt = "";
                         foreach ($er as $key => $value) {
@@ -89,7 +89,7 @@ class CompanyController extends Controller
                     echo "Successfully Created";
                 } catch (Exception $exc) {
                     echo $exc->getMessage();
-                } 
+                }
 	}
 
 	/**
@@ -99,14 +99,14 @@ class CompanyController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
-            try {           
-            
+            try {
+
                     $model=$this->loadModel($id);
 
                     $model->attributes = $_POST;
 
                     if (!$model->save()) {
-                    
+
                         $er = $model->getErrors();
                         $err_txt = "";
                         foreach ($er as $key => $value) {
@@ -114,15 +114,15 @@ class CompanyController extends Controller
                             $err_txt .= $lebel . " : " . $value[0] . "<br/>";
                         }
                         throw new Exception($err_txt);
-                    
+
                     }
 
                         echo "Successfully Created";
                 } catch (Exception $exc) {
                         echo $exc->getMessage();
-                }      
-        
-		
+                }
+
+
 	}
 
 	/**
@@ -150,22 +150,22 @@ class CompanyController extends Controller
 	 */
 	public function actionIndex()
 	{
-		
+
                 //Handle Search Values
                 if (empty($_GET['val'])) {
                     $searchtxt = "";
                 } else {
-                    $searchtxt = " AND name LIKE '%" . $_GET['val'] . "%' ";
+                    $searchtxt = " WHERE name LIKE '%" . $_GET['val'] . "%' ";
                 }
-                
+
                 if (empty($_GET['pages'])) {
                     $pages = 10;
                 } else {
                     $pages = $_GET['pages'];
                 }
-                
-                
-                $sql = "SELECT * FROM company WHERE online = 1 $searchtxt ORDER BY name ASC ";                
+
+
+                $sql = "SELECT * FROM company   $searchtxt ORDER BY name ASC ";
                 $count = Yii::app()->db->createCommand($sql)->query()->rowCount;
                 $dataProvider = new CSqlDataProvider($sql, array(
                     'totalItemCount' => $count,
@@ -173,8 +173,8 @@ class CompanyController extends Controller
                         'pageSize' => $pages
                         ),
                     )
-                );       
-                        
+                );
+
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
