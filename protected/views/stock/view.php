@@ -1,40 +1,28 @@
 <?php
-/* @var $this StockController */
-/* @var $model Stock */
-
-$this->breadcrumbs=array(
-	'Stocks'=>array('index'),
-	$model->id,
-);
-
-$this->menu=array(
-	array('label'=>'List Stock', 'url'=>array('index')),
-	array('label'=>'Create Stock', 'url'=>array('create')),
-	array('label'=>'Update Stock', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Stock', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Stock', 'url'=>array('admin')),
-);
+$items_id = $model->id;
+$items_det = Items::model()->findByPk($items_id);
+$sql = "";
 ?>
-
-<h1>View Stock #<?php echo $model->id; ?></h1>
-
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'id',
-		'trans_type_id',
-		'items_id',
-		'supplier_id',
-		'qty_in',
-		'qty_out',
-		'eff_date',
-		'cost',
-		'selling',
-		'amount',
-		'remark',
-		'wo_type',
-		'online',
-		'created',
-		'wrk_order_id',
-	),
-)); ?>
+<h4>Items Movement For <?=$items_det->name?></h4>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>Trans Type</th>
+			<th>Cost</th>
+			<th>Selling</th>
+			<th>Qty. In</th>
+			<th>Qty. Out</th>
+			<th>WO Code</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Trans Type</td>
+			<td>Cost</td>
+			<td>Selling</td>
+			<td>Qty. In</td>
+			<td>Qty. Out</td>
+			<td>WO Code</td>
+		</tr>
+	</tbody>
+</table>
