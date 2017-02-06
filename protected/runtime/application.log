@@ -11142,6 +11142,12 @@ Stack trace:
 #15 {main}
 REQUEST_URI=/studio/wrkOrder
 ---
+<<<<<<< HEAD
+2017/02/02 08:45:11 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'name' in 'order clause'. The SQL statement executed was: SELECT * FROM stock WHERE online = 1  ORDER BY name ASC .
+in C:\xampp\htdocs\studio\protected\controllers\StockController.php (169)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/02 08:45:11 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'name' in 'order clause'. The SQL statement executed was: SELECT * FROM stock WHERE online = 1  ORDER BY name ASC ' in C:\xampp\htdocs\studio\yii\framework\db\CDbCommand.php:543
+=======
 2017/02/04 16:17:39 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`studio`.`wrk_order_has_items`, CONSTRAINT `fk_wrk_order_has_items_wrk_order1` FOREIGN KEY (`wrk_order_id`) REFERENCES `wrk_order` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: DELETE FROM `wrk_order` WHERE `wrk_order`.`id`=3.
 in C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php (218)
 in C:\xampp\htdocs\studio\index.php (19)
@@ -11276,6 +11282,7 @@ in C:\xampp\htdocs\studio\index.php (19)
 in C:\xampp\htdocs\studio\protected\controllers\StockController.php (169)
 in C:\xampp\htdocs\studio\index.php (19)
 2017/02/05 04:37:45 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'name' in 'order clause'. The SQL statement executed was: SELECT * FROM stock WHERE online = 1  ORDER BY name ASC ' in C:\xampp\htdocs\studio\yii\framework\db\CDbCommand.php:543
+>>>>>>> 5bc343a11696875bf959056adc349b1e22819c06
 Stack trace:
 #0 C:\xampp\htdocs\studio\yii\framework\db\CDbCommand.php(377): CDbCommand->queryInternal('', 0, Array)
 #1 C:\xampp\htdocs\studio\protected\controllers\StockController.php(169): CDbCommand->query()
@@ -11294,6 +11301,57 @@ Stack trace:
 #14 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
 #15 {main}
 REQUEST_URI=/studio/stock
+<<<<<<< HEAD
+HTTP_REFERER=http://localhost/studio/package
+---
+2017/02/02 08:45:38 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'online' in 'where clause'. The SQL statement executed was: SELECT * FROM company WHERE online = 1  ORDER BY name ASC .
+in C:\xampp\htdocs\studio\protected\controllers\CompanyController.php (169)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/02 08:45:38 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'online' in 'where clause'. The SQL statement executed was: SELECT * FROM company WHERE online = 1  ORDER BY name ASC ' in C:\xampp\htdocs\studio\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\db\CDbCommand.php(377): CDbCommand->queryInternal('', 0, Array)
+#1 C:\xampp\htdocs\studio\protected\controllers\CompanyController.php(169): CDbCommand->query()
+#2 C:\xampp\htdocs\studio\yii\framework\web\actions\CInlineAction.php(49): CompanyController->actionIndex()
+#3 C:\xampp\htdocs\studio\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): CController->run('')
+#12 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('company')
+#13 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#15 {main}
+REQUEST_URI=/studio/company
+HTTP_REFERER=http://localhost/studio/supplier
+---
+2017/02/02 08:54:59 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'name' in 'order clause'. The SQL statement executed was: SELECT * FROM stock WHERE online = 1  ORDER BY name ASC .
+in C:\xampp\htdocs\studio\protected\controllers\StockController.php (169)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/02 08:54:59 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'name' in 'order clause'. The SQL statement executed was: SELECT * FROM stock WHERE online = 1  ORDER BY name ASC ' in C:\xampp\htdocs\studio\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\db\CDbCommand.php(377): CDbCommand->queryInternal('', 0, Array)
+#1 C:\xampp\htdocs\studio\protected\controllers\StockController.php(169): CDbCommand->query()
+#2 C:\xampp\htdocs\studio\yii\framework\web\actions\CInlineAction.php(49): StockController->actionIndex()
+#3 C:\xampp\htdocs\studio\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): CController->run('')
+#12 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('stock')
+#13 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#15 {main}
+REQUEST_URI=/studio/stock
+HTTP_REFERER=http://localhost/studio/supplier
+=======
 HTTP_REFERER=http://localhost/studio/wrkOrder
 ---
 2017/02/05 08:55:43 [warning] [application] Failed to set unsafe attribute "discount_percentage" of "Stock".
@@ -11592,15 +11650,30 @@ Stack trace:
 #2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
 #3 {main}
 REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+>>>>>>> 5bc343a11696875bf959056adc349b1e22819c06
 ---
-2017/02/05 20:03:58 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'online' in 'where clause'. The SQL statement executed was: SELECT * FROM company WHERE online = 1  ORDER BY name ASC .
-in C:\xampp\htdocs\studio\protected\controllers\CompanyController.php (169)
+2017/02/06 09:06:11 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'online' in where clause is ambiguous. The SQL statement executed was: SELECT s.`items_id`,i.`name`,s.`supplier_id`,sp.`name`,
+					SUM(IFNULL(s.qty_in, 0) - IFNULL(s.qty_out, 0)) AS avl_qty,
+  				s.`cost`,s.`selling`
+					FROM stock s
+  				JOIN `items` i ON i.`id`=s.`items_id`
+  				JOIN `supplier` sp ON sp.`id` = s.`supplier_id`
+					WHERE online='1' 
+					GROUP BY items_id ORDER BY items_id ASC.
+in C:\xampp\htdocs\studio\protected\controllers\StockController.php (193)
 in C:\xampp\htdocs\studio\index.php (19)
-2017/02/05 20:03:58 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'online' in 'where clause'. The SQL statement executed was: SELECT * FROM company WHERE online = 1  ORDER BY name ASC ' in C:\xampp\htdocs\studio\yii\framework\db\CDbCommand.php:543
+2017/02/06 09:06:11 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'online' in where clause is ambiguous. The SQL statement executed was: SELECT s.`items_id`,i.`name`,s.`supplier_id`,sp.`name`,
+					SUM(IFNULL(s.qty_in, 0) - IFNULL(s.qty_out, 0)) AS avl_qty,
+  				s.`cost`,s.`selling`
+					FROM stock s
+  				JOIN `items` i ON i.`id`=s.`items_id`
+  				JOIN `supplier` sp ON sp.`id` = s.`supplier_id`
+					WHERE online='1' 
+					GROUP BY items_id ORDER BY items_id ASC' in C:\xampp\htdocs\studio\yii\framework\db\CDbCommand.php:543
 Stack trace:
 #0 C:\xampp\htdocs\studio\yii\framework\db\CDbCommand.php(377): CDbCommand->queryInternal('', 0, Array)
-#1 C:\xampp\htdocs\studio\protected\controllers\CompanyController.php(169): CDbCommand->query()
-#2 C:\xampp\htdocs\studio\yii\framework\web\actions\CInlineAction.php(49): CompanyController->actionIndex()
+#1 C:\xampp\htdocs\studio\protected\controllers\StockController.php(193): CDbCommand->query()
+#2 C:\xampp\htdocs\studio\yii\framework\web\actions\CInlineAction.php(49): StockController->actionIndex()
 #3 C:\xampp\htdocs\studio\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
 #4 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
 #5 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
@@ -11610,6 +11683,56 @@ Stack trace:
 #9 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
 #10 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
 #11 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): CController->run('')
+#12 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('stock')
+#13 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#15 {main}
+REQUEST_URI=/studio/stock
+HTTP_REFERER=http://localhost/studio/supplier/index
+---
+<<<<<<< HEAD
+2017/02/05 20:03:58 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'online' in 'where clause'. The SQL statement executed was: SELECT * FROM company WHERE online = 1  ORDER BY name ASC .
+in C:\xampp\htdocs\studio\protected\controllers\CompanyController.php (169)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/05 20:03:58 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'online' in 'where clause'. The SQL statement executed was: SELECT * FROM company WHERE online = 1  ORDER BY name ASC ' in C:\xampp\htdocs\studio\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\db\CDbCommand.php(377): CDbCommand->queryInternal('', 0, Array)
+#1 C:\xampp\htdocs\studio\protected\controllers\CompanyController.php(169): CDbCommand->query()
+#2 C:\xampp\htdocs\studio\yii\framework\web\actions\CInlineAction.php(49): CompanyController->actionIndex()
+=======
+2017/02/06 09:09:31 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'online' in where clause is ambiguous. The SQL statement executed was: SELECT s.`items_id`,i.`name` AS items_name,s.`supplier_id`,sp.`name` AS supplier_name,
+					SUM(IFNULL(s.qty_in, 0) - IFNULL(s.qty_out, 0)) AS avl_qty,
+  				s.`cost`,s.`selling`
+					FROM stock s
+  				JOIN `items` i ON i.`id`=s.`items_id`
+  				JOIN `supplier` sp ON sp.`id` = s.`supplier_id`
+					WHERE online='1' 
+					GROUP BY items_id ORDER BY items_id ASC.
+in C:\xampp\htdocs\studio\protected\controllers\StockController.php (193)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/06 09:09:31 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'online' in where clause is ambiguous. The SQL statement executed was: SELECT s.`items_id`,i.`name` AS items_name,s.`supplier_id`,sp.`name` AS supplier_name,
+					SUM(IFNULL(s.qty_in, 0) - IFNULL(s.qty_out, 0)) AS avl_qty,
+  				s.`cost`,s.`selling`
+					FROM stock s
+  				JOIN `items` i ON i.`id`=s.`items_id`
+  				JOIN `supplier` sp ON sp.`id` = s.`supplier_id`
+					WHERE online='1' 
+					GROUP BY items_id ORDER BY items_id ASC' in C:\xampp\htdocs\studio\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\db\CDbCommand.php(377): CDbCommand->queryInternal('', 0, Array)
+#1 C:\xampp\htdocs\studio\protected\controllers\StockController.php(193): CDbCommand->query()
+#2 C:\xampp\htdocs\studio\yii\framework\web\actions\CInlineAction.php(49): StockController->actionIndex()
+>>>>>>> 894e52efb6d811921dfdff8057512a66f7833452
+#3 C:\xampp\htdocs\studio\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): CController->run('')
+<<<<<<< HEAD
 #12 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('company')
 #13 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
 #14 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
@@ -11641,3 +11764,105 @@ Stack trace:
 REQUEST_URI=/studio/company
 HTTP_REFERER=http://localhost/studio/stock
 ---
+=======
+#12 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('stock')
+#13 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#15 {main}
+REQUEST_URI=/studio/stock
+HTTP_REFERER=http://localhost/studio/supplier/index
+---
+2017/02/06 13:41:30 [error] [php] Undefined index: id (C:\xampp\htdocs\studio\protected\views\stock\_view.php:27)
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\zii\widgets\CListView.php(291): StockController->renderFile()
+#1 C:\xampp\htdocs\studio\yii\framework\zii\widgets\CBaseListView.php(181): CListView->renderItems()
+#2 unknown(0): CListView->renderSection()
+#3 C:\xampp\htdocs\studio\yii\framework\zii\widgets\CBaseListView.php(164): preg_replace_callback()
+#4 C:\xampp\htdocs\studio\yii\framework\zii\widgets\CBaseListView.php(149): CListView->renderContent()
+#5 C:\xampp\htdocs\studio\yii\framework\web\CBaseController.php(181): CListView->run()
+#6 C:\xampp\htdocs\studio\protected\views\stock\index.php(428): StockController->widget()
+#7 C:\xampp\htdocs\studio\yii\framework\web\CBaseController.php(126): require()
+#8 C:\xampp\htdocs\studio\yii\framework\web\CBaseController.php(95): StockController->renderInternal()
+#9 C:\xampp\htdocs\studio\yii\framework\web\CController.php(869): StockController->renderFile()
+#10 C:\xampp\htdocs\studio\yii\framework\web\CController.php(782): StockController->renderPartial()
+#11 C:\xampp\htdocs\studio\protected\controllers\StockController.php(204): StockController->render()
+#12 C:\xampp\htdocs\studio\yii\framework\web\actions\CInlineAction.php(49): StockController->actionIndex()
+#13 C:\xampp\htdocs\studio\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#14 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): StockController->runAction()
+#15 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#16 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#17 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): StockController->filterAccessControl()
+#18 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#19 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#20 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): StockController->runActionWithFilters()
+#21 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): StockController->run()
+#22 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#23 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#24 C:\xampp\htdocs\studio\index.php(19): CWebApplication->run()
+REQUEST_URI=/studio/stock
+in C:\xampp\htdocs\studio\protected\views\stock\_view.php (27)
+in C:\xampp\htdocs\studio\protected\views\stock\index.php (428)
+in C:\xampp\htdocs\studio\protected\controllers\StockController.php (204)
+2017/02/06 13:42:17 [error] [php] Undefined index: id (C:\xampp\htdocs\studio\protected\views\stock\_view.php:27)
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\zii\widgets\CListView.php(291): StockController->renderFile()
+#1 C:\xampp\htdocs\studio\yii\framework\zii\widgets\CBaseListView.php(181): CListView->renderItems()
+#2 unknown(0): CListView->renderSection()
+#3 C:\xampp\htdocs\studio\yii\framework\zii\widgets\CBaseListView.php(164): preg_replace_callback()
+#4 C:\xampp\htdocs\studio\yii\framework\zii\widgets\CBaseListView.php(149): CListView->renderContent()
+#5 C:\xampp\htdocs\studio\yii\framework\web\CBaseController.php(181): CListView->run()
+#6 C:\xampp\htdocs\studio\protected\views\stock\index.php(428): StockController->widget()
+#7 C:\xampp\htdocs\studio\yii\framework\web\CBaseController.php(126): require()
+#8 C:\xampp\htdocs\studio\yii\framework\web\CBaseController.php(95): StockController->renderInternal()
+#9 C:\xampp\htdocs\studio\yii\framework\web\CController.php(869): StockController->renderFile()
+#10 C:\xampp\htdocs\studio\yii\framework\web\CController.php(782): StockController->renderPartial()
+#11 C:\xampp\htdocs\studio\protected\controllers\StockController.php(204): StockController->render()
+#12 C:\xampp\htdocs\studio\yii\framework\web\actions\CInlineAction.php(49): StockController->actionIndex()
+#13 C:\xampp\htdocs\studio\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#14 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): StockController->runAction()
+#15 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#16 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#17 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): StockController->filterAccessControl()
+#18 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#19 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#20 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): StockController->runActionWithFilters()
+#21 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): StockController->run()
+#22 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#23 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#24 C:\xampp\htdocs\studio\index.php(19): CWebApplication->run()
+REQUEST_URI=/studio/stock
+in C:\xampp\htdocs\studio\protected\views\stock\_view.php (27)
+in C:\xampp\htdocs\studio\protected\views\stock\index.php (428)
+in C:\xampp\htdocs\studio\protected\controllers\StockController.php (204)
+2017/02/06 13:42:19 [error] [php] Undefined index: id (C:\xampp\htdocs\studio\protected\views\stock\_view.php:27)
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\zii\widgets\CListView.php(291): StockController->renderFile()
+#1 C:\xampp\htdocs\studio\yii\framework\zii\widgets\CBaseListView.php(181): CListView->renderItems()
+#2 unknown(0): CListView->renderSection()
+#3 C:\xampp\htdocs\studio\yii\framework\zii\widgets\CBaseListView.php(164): preg_replace_callback()
+#4 C:\xampp\htdocs\studio\yii\framework\zii\widgets\CBaseListView.php(149): CListView->renderContent()
+#5 C:\xampp\htdocs\studio\yii\framework\web\CBaseController.php(181): CListView->run()
+#6 C:\xampp\htdocs\studio\protected\views\stock\index.php(428): StockController->widget()
+#7 C:\xampp\htdocs\studio\yii\framework\web\CBaseController.php(126): require()
+#8 C:\xampp\htdocs\studio\yii\framework\web\CBaseController.php(95): StockController->renderInternal()
+#9 C:\xampp\htdocs\studio\yii\framework\web\CController.php(869): StockController->renderFile()
+#10 C:\xampp\htdocs\studio\yii\framework\web\CController.php(782): StockController->renderPartial()
+#11 C:\xampp\htdocs\studio\protected\controllers\StockController.php(204): StockController->render()
+#12 C:\xampp\htdocs\studio\yii\framework\web\actions\CInlineAction.php(49): StockController->actionIndex()
+#13 C:\xampp\htdocs\studio\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#14 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): StockController->runAction()
+#15 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#16 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#17 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): StockController->filterAccessControl()
+#18 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#19 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#20 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): StockController->runActionWithFilters()
+#21 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): StockController->run()
+#22 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#23 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#24 C:\xampp\htdocs\studio\index.php(19): CWebApplication->run()
+REQUEST_URI=/studio/stock
+in C:\xampp\htdocs\studio\protected\views\stock\_view.php (27)
+in C:\xampp\htdocs\studio\protected\views\stock\index.php (428)
+in C:\xampp\htdocs\studio\protected\controllers\StockController.php (204)
+>>>>>>> 894e52efb6d811921dfdff8057512a66f7833452

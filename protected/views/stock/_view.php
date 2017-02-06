@@ -6,23 +6,14 @@
 
 <div class="row datarow">
 
-    <div class='col-sm-2 cells'>
-	<?php echo $data['trans_type_id']; ?>
+    <div class='col-sm-5 cells'>
+	<?php echo $data['items_name']; ?>
+</div>
+<div class='col-sm-4 cells'>
+	<?php echo $data['supplier_name']; ?>
 </div>
 <div class='col-sm-2 cells'>
-	<?php echo $data['items_id']; ?>
-</div>
-<div class='col-sm-2 cells'>
-	<?php echo $data['supplier_id']; ?>
-</div>
-<div class='col-sm-2 cells'>
-	<?php echo $data['qty_in']; ?>
-</div>
-<div class='col-sm-2 cells'>
-	<?php echo $data['qty_out']; ?>
-</div>
-<div class='col-sm-2 cells'>
-	<?php echo $data['eff_date']; ?>
+	<?php echo $data['avl_qty']; ?>
 </div>
 <div class='col-sm-2 cells'>
 	<?php echo $data['cost']; ?>
@@ -30,22 +21,9 @@
 <div class='col-sm-2 cells'>
 	<?php echo $data['selling']; ?>
 </div>
-<div class='col-sm-2 cells'>
-	<?php echo $data['amount']; ?>
-</div>
-<div class='col-sm-2 cells'>
-	<?php echo $data['remark']; ?>
-</div>
-<div class='col-sm-2 cells'>
-	<?php echo $data['wo_type']; ?>
-</div>
-<div class='col-sm-2 cells'>
-	<?php echo $data['wrk_order_id']; ?>
-</div>
-    
-    <div class='col-sm-1 cells btn-cog text-right'>
-        <a class="Stock-update" href="#" data-id="<?php echo $data['id']; ?>" model="Stock" controler="StockController" data-toggle="tooltip" data-placement="top" title="Update"><span class="glyphicon glyphicon-cog"></span></a>
-        <a class="Stock-delete" href="#" data-id="<?php echo $data['id']; ?>" model="Stock" controler="StockController" data-toggle="tooltip" data-placement="top" title="Delete"><span class="glyphicon glyphicon-remove"></span></a>
-    </div>
 
+
+    <div class='col-sm-1 cells btn-cog text-right'>
+        <a href="<?php echo Yii::app()->createUrl("stock") ?>/<?php echo $data['items_id']; ?>" data-id="<?php echo $data['items_id']; ?>" model="Package" controler="PackageController" data-toggle="tooltip" data-placement="top" title="Details" target="_blank"><span class="glyphicon glyphicon-eye-open"></span></a>
+      </div>
 </div>

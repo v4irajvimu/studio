@@ -393,7 +393,11 @@ function cal_grand_total(){
 <div class="container-fluid">
 
     <div class="row">
-        <div class="col-sm-15 headerdiv">Your Column Name</div>
+        <div class="col-sm-5 headerdiv">Item Name</div>
+        <div class="col-sm-4 headerdiv">Supplier Name</div>
+        <div class="col-sm-2 headerdiv">Avl. Qty.</div>
+        <div class="col-sm-2 headerdiv">Cost</div>
+        <div class="col-sm-2 headerdiv">Selling</div>
         <div class="col-sm-1 headerdiv">&nbsp;</div>
     </div>
 

@@ -181,7 +181,15 @@ public function actionIndex()
 	}
 
 
-	$sql = "SELECT * FROM stock WHERE online = 1 $searchtxt ORDER BY items_id ASC ";
+	//$sql = "SELECT * FROM stock WHERE online = 1 $searchtxt ORDER BY items_id ASC ";
+	$sql = "SELECT s.`id`,s.`items_id`,i.`name` AS items_name,s.`supplier_id`,sp.`name` AS supplier_name,
+					SUM(IFNULL(s.qty_in, 0) - IFNULL(s.qty_out, 0)) AS avl_qty,
+  				s.`cost`,s.`selling`
+					FROM stock s
+  				JOIN `items` i ON i.`id`=s.`items_id`
+  				JOIN `supplier` sp ON sp.`id` = s.`supplier_id`
+					WHERE s.`online`='1' $searchtxt
+					GROUP BY items_id ORDER BY items_id ASC";
 	$count = Yii::app()->db->createCommand($sql)->query()->rowCount;
 	$dataProvider = new CSqlDataProvider($sql, array(
 		'totalItemCount' => $count,
