@@ -27,7 +27,7 @@ class WrkOrderController extends Controller
 	public function accessRules(){
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-			'actions'=>array('index','view','jsondata','create','update','delete','cust_list','codegen','item_list'),
+			'actions'=>array('index','view','payment','jsondata','create','update','delete','cust_list','codegen','item_list'),
 			'users'=>array('*'),
 		),
 		array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -119,6 +119,13 @@ public function actionjsondata($id) {
 public function actionView($id)
 {
 	$this->render('view',array(
+		'model'=>$this->loadModel($id),
+	));
+}
+
+public function actionPayment($id)
+{
+	$this->render('payment',array(
 		'model'=>$this->loadModel($id),
 	));
 }
