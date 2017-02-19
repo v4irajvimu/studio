@@ -12141,3 +12141,675 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
 ---
+2017/02/14 13:37:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "Payment/create".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('Payment/create')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/Payment/create
+HTTP_REFERER=http://localhost/studio/wrkOrder/payment/4
+---
+2017/02/14 18:16:50 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\xampp\htdocs\studio\yii\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): CController->run('payment')
+#9 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('wrkOrder/paymen...')
+#10 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#12 {main}
+REQUEST_URI=/studio/wrkOrder/payment/4/1000
+HTTP_REFERER=http://localhost/studio/wrkOrder
+---
+2017/02/14 18:18:40 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\xampp\htdocs\studio\yii\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): CController->run('payment')
+#9 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('wrkOrder/paymen...')
+#10 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#12 {main}
+REQUEST_URI=/studio/wrkOrder/payment/4/1000
+HTTP_REFERER=http://localhost/studio/wrkOrder
+---
+2017/02/14 18:18:51 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\xampp\htdocs\studio\yii\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): CController->run('payment')
+#9 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('wrkOrder/paymen...')
+#10 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#12 {main}
+REQUEST_URI=/studio/wrkOrder/payment/4/1000
+HTTP_REFERER=http://localhost/studio/wrkOrder
+---
+2017/02/14 18:18:59 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\xampp\htdocs\studio\yii\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): CController->run('payment')
+#9 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('wrkOrder/paymen...')
+#10 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#12 {main}
+REQUEST_URI=/studio/wrkOrder/payment/3/1461.25
+HTTP_REFERER=http://localhost/studio/wrkOrder
+---
+2017/02/14 18:22:16 [error] [php] Undefined variable: bal (C:\xampp\htdocs\studio\protected\views\wrkOrder\payment.php:56)
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CController.php(869): WrkOrderController->renderFile()
+#1 C:\xampp\htdocs\studio\yii\framework\web\CController.php(782): WrkOrderController->renderPartial()
+#2 C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php(130): WrkOrderController->render()
+#3 unknown(0): WrkOrderController->actionPayment()
+#4 C:\xampp\htdocs\studio\yii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs()
+#5 C:\xampp\htdocs\studio\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 C:\xampp\htdocs\studio\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): WrkOrderController->runAction()
+#8 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): WrkOrderController->filterAccessControl()
+#11 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): WrkOrderController->runActionWithFilters()
+#14 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): WrkOrderController->run()
+#15 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\studio\index.php(19): CWebApplication->run()
+REQUEST_URI=/studio/wrkOrder/payment/4
+in C:\xampp\htdocs\studio\protected\views\wrkOrder\payment.php (56)
+in C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php (130)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/14 18:22:54 [error] [php] Undefined variable: bal (C:\xampp\htdocs\studio\protected\views\wrkOrder\payment.php:56)
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CController.php(869): WrkOrderController->renderFile()
+#1 C:\xampp\htdocs\studio\yii\framework\web\CController.php(782): WrkOrderController->renderPartial()
+#2 C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php(130): WrkOrderController->render()
+#3 unknown(0): WrkOrderController->actionPayment()
+#4 C:\xampp\htdocs\studio\yii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs()
+#5 C:\xampp\htdocs\studio\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 C:\xampp\htdocs\studio\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): WrkOrderController->runAction()
+#8 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): WrkOrderController->filterAccessControl()
+#11 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): WrkOrderController->runActionWithFilters()
+#14 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): WrkOrderController->run()
+#15 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\studio\index.php(19): CWebApplication->run()
+REQUEST_URI=/studio/wrkOrder/payment/4
+in C:\xampp\htdocs\studio\protected\views\wrkOrder\payment.php (56)
+in C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php (130)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/14 13:58:11 [error] [exception.CException] exception 'CException' with message 'Property "WrkOrder.paid" is not defined.' in C:\xampp\htdocs\studio\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('paid')
+#1 C:\xampp\htdocs\studio\protected\views\wrkOrder\payment.php(3): CActiveRecord->__get('paid')
+#2 C:\xampp\htdocs\studio\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\studio\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#4 C:\xampp\htdocs\studio\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\studio\yii\framework\web\CController.php(782): CController->renderPartial('payment', Array, true)
+#6 C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php(130): CController->render('payment', Array)
+#7 [internal function]: WrkOrderController->actionPayment('4')
+#8 C:\xampp\htdocs\studio\yii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(WrkOrderController), Array)
+#9 C:\xampp\htdocs\studio\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(WrkOrderController), Object(ReflectionMethod), Array)
+#10 C:\xampp\htdocs\studio\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): CController->run('payment')
+#19 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('wrkOrder/paymen...')
+#20 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#22 {main}
+REQUEST_URI=/studio/wrkOrder/payment/4
+HTTP_REFERER=http://localhost/studio/wrkOrder
+---
+2017/02/14 13:58:57 [error] [exception.CException] exception 'CException' with message 'Property "WrkOrder.paid" is not defined.' in C:\xampp\htdocs\studio\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('paid')
+#1 C:\xampp\htdocs\studio\protected\views\wrkOrder\payment.php(3): CActiveRecord->__get('paid')
+#2 C:\xampp\htdocs\studio\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\studio\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#4 C:\xampp\htdocs\studio\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\studio\yii\framework\web\CController.php(782): CController->renderPartial('payment', Array, true)
+#6 C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php(130): CController->render('payment', Array)
+#7 [internal function]: WrkOrderController->actionPayment('4')
+#8 C:\xampp\htdocs\studio\yii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(WrkOrderController), Array)
+#9 C:\xampp\htdocs\studio\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(WrkOrderController), Object(ReflectionMethod), Array)
+#10 C:\xampp\htdocs\studio\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): CController->run('payment')
+#19 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('wrkOrder/paymen...')
+#20 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#22 {main}
+REQUEST_URI=/studio/wrkOrder/payment/4
+HTTP_REFERER=http://localhost/studio/wrkOrder
+---
+2017/02/14 13:58:59 [error] [exception.CException] exception 'CException' with message 'Property "WrkOrder.paid" is not defined.' in C:\xampp\htdocs\studio\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('paid')
+#1 C:\xampp\htdocs\studio\protected\views\wrkOrder\payment.php(3): CActiveRecord->__get('paid')
+#2 C:\xampp\htdocs\studio\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\studio\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#4 C:\xampp\htdocs\studio\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\studio\yii\framework\web\CController.php(782): CController->renderPartial('payment', Array, true)
+#6 C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php(130): CController->render('payment', Array)
+#7 [internal function]: WrkOrderController->actionPayment('4')
+#8 C:\xampp\htdocs\studio\yii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(WrkOrderController), Array)
+#9 C:\xampp\htdocs\studio\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(WrkOrderController), Object(ReflectionMethod), Array)
+#10 C:\xampp\htdocs\studio\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): CController->run('payment')
+#19 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('wrkOrder/paymen...')
+#20 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#22 {main}
+REQUEST_URI=/studio/wrkOrder/payment/4
+HTTP_REFERER=http://localhost/studio/wrkOrder
+---
+2017/02/14 14:04:45 [error] [exception.CException] exception 'CException' with message 'CDbCommand and its behaviors do not have a method or closure named "first_row".' in C:\xampp\htdocs\studio\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\xampp\htdocs\studio\protected\views\wrkOrder\payment.php(11): CComponent->__call('first_row', Array)
+#1 C:\xampp\htdocs\studio\protected\views\wrkOrder\payment.php(11): CDbCommand->first_row()
+#2 C:\xampp\htdocs\studio\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\studio\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#4 C:\xampp\htdocs\studio\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\studio\yii\framework\web\CController.php(782): CController->renderPartial('payment', Array, true)
+#6 C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php(130): CController->render('payment', Array)
+#7 [internal function]: WrkOrderController->actionPayment('4')
+#8 C:\xampp\htdocs\studio\yii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(WrkOrderController), Array)
+#9 C:\xampp\htdocs\studio\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(WrkOrderController), Object(ReflectionMethod), Array)
+#10 C:\xampp\htdocs\studio\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): CController->run('payment')
+#19 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('wrkOrder/paymen...')
+#20 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#22 {main}
+REQUEST_URI=/studio/wrkOrder/payment/4
+HTTP_REFERER=http://localhost/studio/wrkOrder
+---
+2017/02/14 18:35:52 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\studio\protected\views\wrkOrder\payment.php:13)
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CController.php(869): WrkOrderController->renderFile()
+#1 C:\xampp\htdocs\studio\yii\framework\web\CController.php(782): WrkOrderController->renderPartial()
+#2 C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php(130): WrkOrderController->render()
+#3 unknown(0): WrkOrderController->actionPayment()
+#4 C:\xampp\htdocs\studio\yii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs()
+#5 C:\xampp\htdocs\studio\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 C:\xampp\htdocs\studio\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): WrkOrderController->runAction()
+#8 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): WrkOrderController->filterAccessControl()
+#11 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): WrkOrderController->runActionWithFilters()
+#14 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): WrkOrderController->run()
+#15 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\studio\index.php(19): CWebApplication->run()
+REQUEST_URI=/studio/wrkOrder/payment/4
+in C:\xampp\htdocs\studio\protected\views\wrkOrder\payment.php (13)
+in C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php (130)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/14 18:36:32 [error] [php] Undefined index: total (C:\xampp\htdocs\studio\protected\views\wrkOrder\payment.php:13)
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CController.php(869): WrkOrderController->renderFile()
+#1 C:\xampp\htdocs\studio\yii\framework\web\CController.php(782): WrkOrderController->renderPartial()
+#2 C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php(130): WrkOrderController->render()
+#3 unknown(0): WrkOrderController->actionPayment()
+#4 C:\xampp\htdocs\studio\yii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs()
+#5 C:\xampp\htdocs\studio\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 C:\xampp\htdocs\studio\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): WrkOrderController->runAction()
+#8 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): WrkOrderController->filterAccessControl()
+#11 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): WrkOrderController->runActionWithFilters()
+#14 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): WrkOrderController->run()
+#15 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\studio\index.php(19): CWebApplication->run()
+REQUEST_URI=/studio/wrkOrder/payment/4
+in C:\xampp\htdocs\studio\protected\views\wrkOrder\payment.php (13)
+in C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php (130)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/14 18:36:50 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\studio\protected\views\wrkOrder\payment.php:39)
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CController.php(869): WrkOrderController->renderFile()
+#1 C:\xampp\htdocs\studio\yii\framework\web\CController.php(782): WrkOrderController->renderPartial()
+#2 C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php(130): WrkOrderController->render()
+#3 unknown(0): WrkOrderController->actionPayment()
+#4 C:\xampp\htdocs\studio\yii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs()
+#5 C:\xampp\htdocs\studio\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 C:\xampp\htdocs\studio\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): WrkOrderController->runAction()
+#8 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): WrkOrderController->filterAccessControl()
+#11 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): WrkOrderController->runActionWithFilters()
+#14 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): WrkOrderController->run()
+#15 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\studio\index.php(19): CWebApplication->run()
+REQUEST_URI=/studio/wrkOrder/payment/4
+in C:\xampp\htdocs\studio\protected\views\wrkOrder\payment.php (39)
+in C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php (130)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/14 18:37:10 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\studio\protected\views\wrkOrder\payment.php:39)
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CController.php(869): WrkOrderController->renderFile()
+#1 C:\xampp\htdocs\studio\yii\framework\web\CController.php(782): WrkOrderController->renderPartial()
+#2 C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php(130): WrkOrderController->render()
+#3 unknown(0): WrkOrderController->actionPayment()
+#4 C:\xampp\htdocs\studio\yii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs()
+#5 C:\xampp\htdocs\studio\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 C:\xampp\htdocs\studio\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): WrkOrderController->runAction()
+#8 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): WrkOrderController->filterAccessControl()
+#11 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): WrkOrderController->runActionWithFilters()
+#14 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): WrkOrderController->run()
+#15 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\studio\index.php(19): CWebApplication->run()
+REQUEST_URI=/studio/wrkOrder/payment/4
+in C:\xampp\htdocs\studio\protected\views\wrkOrder\payment.php (39)
+in C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php (130)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/14 18:37:39 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\studio\protected\views\wrkOrder\payment.php:39)
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CController.php(869): WrkOrderController->renderFile()
+#1 C:\xampp\htdocs\studio\yii\framework\web\CController.php(782): WrkOrderController->renderPartial()
+#2 C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php(130): WrkOrderController->render()
+#3 unknown(0): WrkOrderController->actionPayment()
+#4 C:\xampp\htdocs\studio\yii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs()
+#5 C:\xampp\htdocs\studio\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 C:\xampp\htdocs\studio\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): WrkOrderController->runAction()
+#8 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): WrkOrderController->filterAccessControl()
+#11 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): WrkOrderController->runActionWithFilters()
+#14 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): WrkOrderController->run()
+#15 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\studio\index.php(19): CWebApplication->run()
+REQUEST_URI=/studio/wrkOrder/payment/4
+in C:\xampp\htdocs\studio\protected\views\wrkOrder\payment.php (39)
+in C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php (130)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/14 18:38:04 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\studio\protected\views\wrkOrder\payment.php:39)
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CController.php(869): WrkOrderController->renderFile()
+#1 C:\xampp\htdocs\studio\yii\framework\web\CController.php(782): WrkOrderController->renderPartial()
+#2 C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php(130): WrkOrderController->render()
+#3 unknown(0): WrkOrderController->actionPayment()
+#4 C:\xampp\htdocs\studio\yii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs()
+#5 C:\xampp\htdocs\studio\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 C:\xampp\htdocs\studio\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): WrkOrderController->runAction()
+#8 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): WrkOrderController->filterAccessControl()
+#11 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): WrkOrderController->runActionWithFilters()
+#14 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): WrkOrderController->run()
+#15 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\studio\index.php(19): CWebApplication->run()
+REQUEST_URI=/studio/wrkOrder/payment/4
+in C:\xampp\htdocs\studio\protected\views\wrkOrder\payment.php (39)
+in C:\xampp\htdocs\studio\protected\controllers\WrkOrderController.php (130)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/14 14:14:13 [warning] [application] Failed to set unsafe attribute "data" of "Payments".
+in C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/14 14:14:24 [warning] [application] Failed to set unsafe attribute "data" of "Payments".
+in C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/14 14:15:47 [warning] [application] Failed to set unsafe attribute "data" of "Payments".
+in C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/14 14:18:02 [warning] [application] Failed to set unsafe attribute "data" of "Payments".
+in C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/14 14:18:08 [warning] [application] Failed to set unsafe attribute "data" of "Payments".
+in C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/14 14:19:11 [warning] [application] Failed to set unsafe attribute "data" of "Payments".
+in C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/14 14:21:26 [warning] [application] Failed to set unsafe attribute "data" of "Payments".
+in C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/14 14:22:04 [warning] [application] Failed to set unsafe attribute "data" of "Payments".
+in C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/14 14:22:38 [warning] [application] Failed to set unsafe attribute "data" of "Payments".
+in C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/14 14:41:45 [warning] [application] Failed to set unsafe attribute "data" of "Payments".
+in C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/14 14:51:24 [warning] [application] Failed to set unsafe attribute "data" of "Payments".
+in C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/14 15:02:00 [warning] [application] Failed to set unsafe attribute "data" of "Payments".
+in C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php (76)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/19 10:11:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/19 10:16:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/19 10:17:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/19 10:23:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/19 10:23:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/19 10:25:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/19 10:26:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/19 10:28:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/19 10:36:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/19 10:37:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/19 10:37:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/19 10:38:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/19 10:38:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/19 11:42:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "pul/index".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('pul/index')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/pul/index
+---
+2017/02/19 12:15:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "mainbg.jpg".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('mainbg.jpg')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/mainbg.jpg
+HTTP_REFERER=http://localhost/studio/
+---
+2017/02/19 12:16:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "mainbg.jpg".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('mainbg.jpg')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/mainbg.jpg
+HTTP_REFERER=http://localhost/studio/
+---
+2017/02/19 12:17:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "mainbg.jpg".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('mainbg.jpg')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/mainbg.jpg
+HTTP_REFERER=http://localhost/studio/
+---
+2017/02/19 12:18:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "mainbg.jpg".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('mainbg.jpg')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/mainbg.jpg
+HTTP_REFERER=http://localhost/studio/
+---
+2017/02/19 12:18:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "mainbg.jpg".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('mainbg.jpg')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/mainbg.jpg
+HTTP_REFERER=http://localhost/studio/
+---
+2017/02/19 12:18:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "mainbg.jpg".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('mainbg.jpg')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/mainbg.jpg
+HTTP_REFERER=http://localhost/studio/
+---
+2017/02/19 12:19:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "mainbg.jpg".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('mainbg.jpg')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/mainbg.jpg
+HTTP_REFERER=http://localhost/studio/
+---
+2017/02/19 12:19:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "mainbg.jpg".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('mainbg.jpg')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/mainbg.jpg
+HTTP_REFERER=http://localhost/studio/
+---
+2017/02/19 12:19:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/19 12:20:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/19 12:46:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/19 12:49:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/19 13:07:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/19 13:07:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/19 13:08:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/19 13:22:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "wrkOrder".' in C:\xampp\htdocs\studio\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CController.php(270): CController->missingAction('wrkOrder')
+#1 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): CController->run('wrkOrder')
+#2 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/wrkOrder')
+#3 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/studio/site/wrkOrder
+HTTP_REFERER=http://localhost/studio/
+---

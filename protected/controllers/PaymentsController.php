@@ -69,10 +69,11 @@ class PaymentsController extends Controller
 	 */
 	public function actionCreate()
 	{
+
 		try {           
             
                     $model = new Payments;
-
+                    //$transaction=$model->dbConnection->beginTransaction();
                     $model->attributes = $_POST;
 
                     if (!$model->save()) {
@@ -85,11 +86,41 @@ class PaymentsController extends Controller
                         }
                         throw new Exception($err_txt);
                     }
+                    else{
+                    	if($this->wo_status_update($model->wrk_order_id)){
+                    		//$transaction->commit();
+                    	}
+                    	
+                    	
+                    }
 
                     echo "Successfully Created";
                 } catch (Exception $exc) {
+                	//$transaction->rollback();
                     echo $exc->getMessage();
                 } 
+	}
+
+	public function wo_status_update($wrk_order_id){
+		$model = WrkOrder::model()->findByPk($wrk_order_id);
+
+		$sql = "SELECT IFNULL(SUM(p.amount),0) AS paid, IFNULL(wo.total,0) AS tot FROM payments p JOIN wrk_order wo ON p.wrk_order_id=wo.id WHERE p.wrk_order_id='$wrk_order_id' AND p.online='1' GROUP BY p.wrk_order_id";
+		$res = Yii::app()->db->createCommand($sql)->queryAll();
+		if(count($res)>0){
+			if($res[0]['paid'] != '0' && $res[0]['tot'] != '0' && $res[0]['tot'] == $res[0]['paid'] ){
+				$model->wo_status_id = '3';
+				
+			}
+			else{
+				$model->wo_status_id = '2';
+				
+			}
+		}
+		else{
+			$model->wo_status_id = '1';
+			
+		}
+		$model->save();
 	}
 
 	/**

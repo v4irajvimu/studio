@@ -15,13 +15,10 @@
  * @property string $clr_header_bg
  * @property string $clr_header_txt
  * @property string $clr_subheader_bg
+ * @property string $clr_subheader_bg_hover
  * @property string $clr_subheader_txt
- * @property string $clr_body_bg
- * @property string $clr_body_txt
- * @property string $clr_popup_border
- * @property string $clr_popup_bg
- * @property string $clr_popup_txt
  * @property integer $online
+ * @property string $clr_ui_border_bottom
  *
  * The followings are the available model relations:
  * @property Users[] $users
@@ -49,10 +46,10 @@ class Company extends CActiveRecord
 			array('slogon', 'length', 'max'=>150),
 			array('email', 'length', 'max'=>100),
 			array('tp_1, tp_2, fax', 'length', 'max'=>45),
-			array('clr_header_bg, clr_header_txt, clr_subheader_bg, clr_subheader_txt, clr_body_bg, clr_body_txt, clr_popup_border, clr_popup_bg, clr_popup_txt', 'length', 'max'=>10),
+			array('clr_header_bg, clr_header_txt, clr_subheader_bg, clr_subheader_bg_hover, clr_subheader_txt, clr_ui_border_bottom', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, address, slogon, email, tp_1, tp_2, fax, clr_header_bg, clr_header_txt, clr_subheader_bg, clr_subheader_txt, clr_body_bg, clr_body_txt, clr_popup_border, clr_popup_bg, clr_popup_txt, online', 'safe', 'on'=>'search'),
+			array('id, name, address, slogon, email, tp_1, tp_2, fax, clr_header_bg, clr_header_txt, clr_subheader_bg, clr_subheader_bg_hover, clr_subheader_txt, online, clr_ui_border_bottom', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -85,13 +82,10 @@ class Company extends CActiveRecord
 			'clr_header_bg' => 'Clr Header Bg',
 			'clr_header_txt' => 'Clr Header Txt',
 			'clr_subheader_bg' => 'Clr Subheader Bg',
+			'clr_subheader_bg_hover' => 'Clr Subheader Bg Hover',
 			'clr_subheader_txt' => 'Clr Subheader Txt',
-			'clr_body_bg' => 'Clr Body Bg',
-			'clr_body_txt' => 'Clr Body Txt',
-			'clr_popup_border' => 'Clr Popup Border',
-			'clr_popup_bg' => 'Clr Popup Bg',
-			'clr_popup_txt' => 'Clr Popup Txt',
 			'online' => 'Online',
+			'clr_ui_border_bottom' => 'Clr Ui Border Bottom',
 		);
 	}
 
@@ -124,13 +118,10 @@ class Company extends CActiveRecord
 		$criteria->compare('clr_header_bg',$this->clr_header_bg,true);
 		$criteria->compare('clr_header_txt',$this->clr_header_txt,true);
 		$criteria->compare('clr_subheader_bg',$this->clr_subheader_bg,true);
+		$criteria->compare('clr_subheader_bg_hover',$this->clr_subheader_bg_hover,true);
 		$criteria->compare('clr_subheader_txt',$this->clr_subheader_txt,true);
-		$criteria->compare('clr_body_bg',$this->clr_body_bg,true);
-		$criteria->compare('clr_body_txt',$this->clr_body_txt,true);
-		$criteria->compare('clr_popup_border',$this->clr_popup_border,true);
-		$criteria->compare('clr_popup_bg',$this->clr_popup_bg,true);
-		$criteria->compare('clr_popup_txt',$this->clr_popup_txt,true);
 		$criteria->compare('online',$this->online);
+		$criteria->compare('clr_ui_border_bottom',$this->clr_ui_border_bottom,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

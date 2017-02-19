@@ -61,41 +61,29 @@
                           <label>Header Text: </label>
                           <input type="color" id="clr_header_txt" name="clr_header_txt" class="form-control"  />
                       </div>
+                      <!-- clr_ui_border_bottom -->
+                      <div class="col-sm-3">
+                          <label>UI Bottom Boarder: </label>
+                          <input type="color" id="clr_ui_border_bottom" name="clr_ui_border_bottom" class="form-control"  />
+                      </div>
                     </div>
                     <div class="row">
                       <div class="col-sm-3">
                           <label>Sub Header Background: </label>
                           <input type="color" id="clr_subheader_bg" name="clr_subheader_bg" class="form-control"  />
                       </div>
+                      <!-- clr_subheader_bg_hover -->
+                      <div class="col-sm-4">
+                          <label>Sub Header Background Hover: </label>
+                          <input type="color" id="clr_subheader_bg_hover" name="clr_subheader_bg_hover" class="form-control"  />
+                      </div>
                       <div class="col-sm-3">
                           <label>Sub Header Text: </label>
                           <input type="color" id="clr_subheader_txt" name="clr_subheader_txt" class="form-control"  />
                       </div>
                     </div>
-                    <div class="row">
-                      <div class="col-sm-3">
-                          <label>Body Background: </label>
-                          <input type="color" id="clr_body_bg" name="clr_body_bg" class="form-control"  />
-                      </div>
-                      <div class="col-sm-3">
-                          <label>Body Text: </label>
-                          <input type="color" id="clr_body_txt" name="clr_body_txt" class="form-control"  />
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-3">
-                          <label>Popup Background: </label>
-                          <input type="color" id="clr_popup_bg" name="clr_popup_bg" class="form-control"  />
-                      </div>
-                      <div class="col-sm-3">
-                          <label>Popup Text: </label>
-                          <input type="color" id="clr_popup_txt" name="clr_popup_txt" class="form-control"  />
-                      </div>
-                      <div class="col-sm-3">
-                          <label>Popup Boarder Color: </label>
-                          <input type="color" id="clr_popup_border" name="clr_popup_border" class="form-control"  />
-                      </div>
-                    </div>
+
+
                     <div class="row btn-row">
                         <div class="col-sm-16">
                             <button id="Company-submitbtn" class="btn btn-default">Create</button>
@@ -137,6 +125,7 @@
                 $("#Company-add").attr("disabled", false);
                 $.fn.yiiListView.update('Company-list');
                 $("#Company-popup").fadeOut();
+                location.reload();
 
             }
         });
@@ -256,7 +245,12 @@
 <div class="container-fluid">
 
     <div class="row">
-        <div class="col-sm-15 headerdiv">Your Column Name</div>
+        <div class="col-sm-3 headerdiv"> Name</div>
+        <div class="col-sm-3 headerdiv"> Address</div>
+        <div class="col-sm-2 headerdiv"> Slogon</div>
+        <div class="col-sm-3 headerdiv"> Email</div>
+        <div class="col-sm-2 headerdiv"> TP</div>
+        <div class="col-sm-2 headerdiv"> Fax</div>
         <div class="col-sm-1 headerdiv">&nbsp;</div>
     </div>
 

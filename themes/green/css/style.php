@@ -1,9 +1,35 @@
 <?php
-$color =  "red";
-<?php
-$value = (string)Yii::app()->request->cookies['bgclr'];
-//echo $value;
- ?>
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "studio";
+
+// Create connection
+$db = new mysqli($servername, $username, $password,$dbname);
+// Check connection
+// if ($conn->connect_error) {
+//     $color =  "red";
+// }
+// else{
+//   $color =  "blue";
+// }
+
+$sql = "SELECT * FROM company WHERE online='1' LIMIT 0,1";
+$result = $db->query($sql)->fetch_assoc();
+
+
+ $clr_header_bg = $result['clr_header_bg'];
+ $clr_header_txt = $result['clr_header_txt'];
+ $clr_subheader_bg = $result['clr_subheader_bg'];
+ $clr_subheader_txt = $result['clr_subheader_txt'];
+ $clr_body_bg = $result['clr_body_bg'];
+ $clr_body_txt  = $result['clr_body_txt'];
+ $clr_popup_border = $result['clr_popup_border'];
+ $clr_popup_bg = $result['clr_popup_bg'];
+ $clr_popup_txt = $result['clr_popup_txt'];
+$clr_ui_border_bottom = $result['clr_ui_border_bottom'];
+$clr_subheader_bg_hover = $result['clr_subheader_bg_hover'];
+
     header("Content-type: text/css; charset: UTF-8");
 
 
@@ -29,8 +55,8 @@ footer
 }
 
 header{
-    background: <?=$value?>;
-    border-bottom: 1px solid #dfdfdf;
+    background: <?=$clr_header_bg?>;
+    border-bottom: 1px solid <?=$clr_header_bg?>;
     position: fixed;
     width: 100%;
     top: 0px;
@@ -46,14 +72,14 @@ header h2{
 }
 
 #navigation{
-    background: #e8e8e8;
-    color: #393939;
+    background: <?=$clr_subheader_bg?>;
+    color: <?=$clr_subheader_txt?>;
     position: fixed;
     top: 50px;
     width: 100%;
     padding: 0 15px;
     z-index: 190;
-    border-bottom: solid 2px #ec008c;
+    border-bottom: solid 2px <?=$clr_ui_border_bottom?>;
 }
 
 #quick_nav{
@@ -91,7 +117,7 @@ header .company{
 }
 
 .side_nav h3{
-    color: #0080c7;
+    color: <?=$clr_header_bg?>;
 }
 .side_nav ul{
     margin: 0px;
@@ -108,27 +134,27 @@ header .company{
 .side_nav ul li a{
     display: block;
     padding: 6px 10px;
-    background: #e6e6e6;
+    background: <?=$clr_subheader_bg?>;
     margin-bottom: 2px;
     color: #333333;
     font-size: 12px;
-    border-right: 2px solid #0080c7;
+    border-right: 2px solid <?=$clr_header_bg?>;
     border-radius:5px;
-    border-bottom: solid 2px #e6e6e6;
+    border-bottom: solid 2px <?=$clr_subheader_bg?>;
 }
 .side_nav ul li a:hover{
-    background: #cfcfcf;
+    background: <?=$clr_subheader_bg_hover?>;
     text-decoration: none;
-    color: #ec008c;
-    border-bottom: solid 2px #ec008c;
-    border-right: 2px solid #ec008c;
+    color: <?=$clr_ui_border_bottom?>;
+    border-bottom: solid 2px <?=$clr_ui_border_bottom?>;
+    border-right: 2px solid <?=$clr_ui_border_bottom?>;
 }
 .active_{
-    background: #0080c7 !important;
+    background: <?=$clr_header_bg?> !important;
     text-decoration: none !important;
-    color: white !important;
-    border-bottom: solid 2px #ec008c !important;
-    border-right: 2px solid #ec008c !important;
+    color: <?=$clr_header_txt?> !important;
+    border-bottom: solid 2px <?=$clr_ui_border_bottom?> !important;
+    border-right: 2px solid <?=$clr_ui_border_bottom?> !important;
 }
 
 .header_topic{
@@ -185,8 +211,8 @@ header .company{
 
 /************** GRID *********************/
 .headerdiv{
-    background: #0080c7;
-    color: white;
+    background: <?=$clr_header_bg?>;
+    color: <?=$clr_header_txt?>;
     font-size: 12px;
     padding: 4px;
     font-weight: bold;
@@ -215,7 +241,7 @@ header .company{
 
 .datarow:hover{
     cursor: pointer;
-    border-bottom: 2px solid #0080c7;
+    border-bottom: 2px solid <?=$clr_header_bg?>;
 
 }
 
@@ -236,7 +262,7 @@ header .company{
     margin-left: -300px;
     margin-top: -100px;
     background: white;
-    box-shadow: 1px 1px 108px rgb(33, 129, 182);
+    box-shadow: 1px 1px 108px <?=$clr_header_bg?>;
     z-index: 5000;
     display: none;
 }

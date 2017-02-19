@@ -126,7 +126,7 @@ public function actionView($id)
 public function actionPayment($id)
 {
 	$this->render('payment',array(
-		'model'=>$this->loadModel($id),
+		'model'=>$this->loadModel($id)
 	));
 }
 
