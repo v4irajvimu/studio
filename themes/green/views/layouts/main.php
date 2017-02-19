@@ -39,6 +39,11 @@
   <!-- Notify.js -->
   <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl . '/js/notify.js'); ?>
 
+  <!-- Hicharts -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
   <!-- Bootstrap CSS 3.1.1 -->
   <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/bootstrap.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/bootstrap-theme.css" />
@@ -210,32 +215,38 @@ if (Yii::app()->user->isGuest) {
 outline: none !important;
 border: transparent;
 border-bottom: 1px #2d2eb3 solid;
+color: black;
+font-weight: bold;
   }
 
   ::-webkit-input-placeholder {
-   color: #1E1C1C !important;
+   color: white !important;
    line-height: 1.42857143;
+   font-weight: bold;
 
 
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: #1E1C1C !important;
+   color: white !important;
    line-height: 1.42857143;
+   font-weight: bold;
 
 
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: #1E1C1C !important;
+   color: white !important;
    line-height: 1.42857143;
+   font-weight: bold;
 
 
 }
 
 :-ms-input-placeholder {
-   color: #1E1C1C !important;
+   color: white !important;
    line-height: 1.42857143;
+   font-weight: bold;
 
 
 }
@@ -357,7 +368,11 @@ border-bottom: 1px #2d2eb3 solid;
           <div class="row">
             <div class="col-sm-16 text-left">
               <!-- <h3><?php echo Yii::app()->params['company']; ?></h3> -->
-              <h3><?=$company[0]['name']." | ".$company[0]['slogon']?></h3>
+              <a style="display:inline-block;" id="homelink"  href="<?php echo Yii::app()->user->returnUrl; ?>" >
+                  <span class="glyphicon glyphicon-home"></span>
+              </a>
+              &emsp;
+              <h3 style="display:inline-block;font-weight:bold;"><?=$company[0]['name']." | ".$company[0]['slogon']?></h3>
             </div>
           </div>
         </div>

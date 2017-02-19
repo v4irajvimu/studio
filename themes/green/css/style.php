@@ -568,3 +568,60 @@ a.green{
     height: 100%;
     width: 100%;
 }
+
+<!-- dashboard css -->
+.main-tile{
+    width:100%;
+    height:150px;
+    background: <?=$clr_subheader_bg?>;
+    border: 2px red solid;
+}
+.title-midle{
+    padding:10px;
+    background:<?=$clr_subheader_bg?>    ;
+    height:130px;
+    border-radius:10px;
+}
+.link-box{
+    width:100%;
+    height:100%;
+    padding:10px;
+    border: 1px <?=$clr_ui_border_bottom?> dashed;
+    border-radius:10px;
+    font-weight:bold;
+    font-size:20px;
+
+}
+.title-midle a{
+    text-decoration:none;
+}
+.title-midle a:hover{
+    text-decoration:none;
+    color: <?=$clr_ui_border_bottom?>;
+    
+}
+#left-dash{
+    border-radius:10px;
+    background:<?=$clr_subheader_bg?> ;
+}
+#stockvalue {
+    height: 520px; 
+    width:100%;
+    margin: 0 auto;
+}
+#totalsales {
+    height: 520px; 
+    width:100%;
+    margin: 0 auto;
+}
+.chart-box{
+    padding:10px;
+    border: 6px solid <?=$clr_subheader_bg?>;
+    border-radius:10px;
+}
+#homelink{
+    color: <?=$clr_ui_border_bottom?>
+}
+#homelink:hover{
+    color: <?=$clr_header_bg?>
+}
