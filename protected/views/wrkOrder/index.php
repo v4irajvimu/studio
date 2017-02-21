@@ -72,6 +72,17 @@ $(document).on("change", ".discount_type", function (e) {
 $(document).on("keyup","#discount_percentage , #discount", function(){
   cal_grand_total();
 });
+
+$(document).on("click",".is_wrok_done",function(e){
+  e.preventDefault();
+  var id = $(this).attr('data-id');
+  $.post("<?= Yii::app()->createUrl('WrkOrder/workdone') ?>", {
+    id: id
+  }, function (r) {
+    $.fn.yiiListView.update('WrkOrder-list');
+  }, "text");
+
+});
 function item_add_grid(thisObj){
 
   var items_id = thisObj.attr('data-id');
@@ -188,6 +199,13 @@ function codeGen(wo_type) {
   }, function (r) {
     $("#code").val(r);
   }, "text");
+
+  if(wo_type == 'CASH'){
+    $("#is_wrok_done").val('1');
+  }
+  else{
+    $("#is_wrok_done").val('0');
+  }
 }
 function getCustomerList() {
   var search = $("#cust_search").val();
@@ -239,6 +257,7 @@ function getItemList() {
                   <div class="col-sm-4">
                     <label>Code: </label>
                     <input readonly type="text" id="code" name="code" class="form-control" required/>
+                    <input  type="hidden" id="is_wrok_done" name="is_wrok_done" class="form-control" />
                   </div>
                 </div>
                 <div class="row">

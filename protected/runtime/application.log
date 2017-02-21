@@ -13227,3 +13227,197 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
 ---
+2017/02/21 17:51:26 [error] [php] Undefined variable: p_type (C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php:184)
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): PaymentsController->runAction()
+#2 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): PaymentsController->filterAccessControl()
+#5 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): PaymentsController->runActionWithFilters()
+#8 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): PaymentsController->run()
+#9 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\studio\index.php(19): CWebApplication->run()
+REQUEST_URI=/studio/Payments/create
+in C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php (184)
+in C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php (72)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/21 17:52:25 [error] [php] Undefined variable: code (C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php:203)
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): PaymentsController->runAction()
+#2 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): PaymentsController->filterAccessControl()
+#5 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): PaymentsController->runActionWithFilters()
+#8 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): PaymentsController->run()
+#9 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\studio\index.php(19): CWebApplication->run()
+REQUEST_URI=/studio/Payments/create
+in C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php (203)
+in C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php (72)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/21 17:52:33 [error] [php] Undefined variable: code (C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php:203)
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): PaymentsController->runAction()
+#2 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): PaymentsController->filterAccessControl()
+#5 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): PaymentsController->runActionWithFilters()
+#8 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): PaymentsController->run()
+#9 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\studio\index.php(19): CWebApplication->run()
+REQUEST_URI=/studio/Payments/create
+in C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php (203)
+in C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php (72)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/21 17:52:36 [error] [php] Undefined variable: code (C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php:203)
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): PaymentsController->runAction()
+#2 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): PaymentsController->filterAccessControl()
+#5 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): PaymentsController->runActionWithFilters()
+#8 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): PaymentsController->run()
+#9 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\studio\index.php(19): CWebApplication->run()
+REQUEST_URI=/studio/Payments/create
+in C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php (203)
+in C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php (72)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/21 17:53:08 [error] [php] Undefined variable: code (C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php:203)
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): PaymentsController->runAction()
+#2 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): PaymentsController->filterAccessControl()
+#5 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): PaymentsController->runActionWithFilters()
+#8 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): PaymentsController->run()
+#9 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\studio\index.php(19): CWebApplication->run()
+REQUEST_URI=/studio/Payments/create
+in C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php (203)
+in C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php (72)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/21 23:00:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/21 23:02:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/21 23:03:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/21 18:33:37 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php:98)
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): PaymentsController->runAction()
+#1 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): PaymentsController->filterAccessControl()
+#4 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): PaymentsController->runActionWithFilters()
+#7 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): PaymentsController->run()
+#8 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\studio\index.php(19): CWebApplication->run()
+REQUEST_URI=/studio/Payments/create
+in C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php (98)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/21 23:04:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/21 23:05:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/21 23:06:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/21 18:36:39 [error] [php] Undefined variable: +945481212 (C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php:99)
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(133): PaymentsController->runAction()
+#1 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\studio\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\studio\yii\framework\web\filters\CInlineFilter.php(58): PaymentsController->filterAccessControl()
+#4 C:\xampp\htdocs\studio\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\studio\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\studio\yii\framework\web\CController.php(265): PaymentsController->runActionWithFilters()
+#7 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(282): PaymentsController->run()
+#8 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\studio\index.php(19): CWebApplication->run()
+REQUEST_URI=/studio/Payments/create
+in C:\xampp\htdocs\studio\protected\controllers\PaymentsController.php (99)
+in C:\xampp\htdocs\studio\index.php (19)
+2017/02/21 23:07:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/21 23:11:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---
+2017/02/21 23:24:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/green/js/parsley.min.js.map".' in C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\studio\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/green/js...')
+#1 C:\xampp\htdocs\studio\yii\framework\base\CApplication.php(187): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\studio\index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/studio/themes/green/js/parsley.min.js.map
+---

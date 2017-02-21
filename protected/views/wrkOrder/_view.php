@@ -58,6 +58,14 @@
         <?php
       }
 
+
+      if($data['is_wrok_done'] == "0"){
+        ?>
+        &nbsp;
+        <a class="is_wrok_done"  href="#" data-id="<?php echo $data['id']; ?>" data-toggle="tooltip" data-placement="top" title="Send Work Complete Message"><span class="glyphicon glyphicon-send"></span></a>
+      <?php
+      }
+
        ?>
 
     </div>

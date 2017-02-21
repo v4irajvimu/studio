@@ -18,6 +18,7 @@
  * @property string $discount
  * @property string $total
  * @property string $discount_percentage
+ * @property integer $is_wrok_done
  *
  * The followings are the available model relations:
  * @property Payments[] $payments
@@ -46,7 +47,7 @@ class WrkOrder extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('wo_status_id, customer_id', 'required'),
-			array('wo_status_id, customer_id, discount_type_id', 'numerical', 'integerOnly'=>true),
+			array('wo_status_id, customer_id, discount_type_id, is_wrok_done', 'numerical', 'integerOnly'=>true),
 			array('code', 'length', 'max'=>55),
 			array('wo_type', 'length', 'max'=>6),
 			array('remark, customer_name', 'length', 'max'=>255),
@@ -54,7 +55,7 @@ class WrkOrder extends CActiveRecord
 			array('eff_date, delivery_date, created', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, code, eff_date, wo_type, delivery_date, remark, wo_status_id, customer_id, created, customer_name, discount_type_id, discount, total, discount_percentage', 'safe', 'on'=>'search'),
+			array('id, code, eff_date, wo_type, delivery_date, remark, wo_status_id, customer_id, created, customer_name, discount_type_id, discount, total, discount_percentage, is_wrok_done', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -95,6 +96,7 @@ class WrkOrder extends CActiveRecord
 			'discount' => 'Discount',
 			'total' => 'Total',
 			'discount_percentage' => 'Discount Percentage',
+			'is_wrok_done' => 'Is Wrok Done',
 		);
 	}
 
@@ -130,6 +132,7 @@ class WrkOrder extends CActiveRecord
 		$criteria->compare('discount',$this->discount,true);
 		$criteria->compare('total',$this->total,true);
 		$criteria->compare('discount_percentage',$this->discount_percentage,true);
+		$criteria->compare('is_wrok_done',$this->is_wrok_done);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

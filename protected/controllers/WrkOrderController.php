@@ -27,7 +27,7 @@ class WrkOrderController extends Controller
 	public function accessRules(){
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-			'actions'=>array('index','view','payment','jsondata','create','update','delete','cust_list','codegen','item_list'),
+			'actions'=>array('index','view','payment','jsondata','create','update','delete','cust_list','codegen','item_list','workdone','print'),
 			'users'=>array('*'),
 		),
 		array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -43,6 +43,83 @@ array('deny',  // deny all users
 ),
 );
 }
+
+ public function actionPrint($id)
+	{
+		$this->renderPartial('printpdf', array(
+                                    'appoinment_id' => $id,
+                                    ));
+	}
+public function actionworkdone(){
+	$wo_det = WrkOrder::model()->findByPk($_POST['id']);
+	$wo_det->is_wrok_done = '1';
+	if($wo_det->save()){
+
+		$no = $wo_det->id;
+		$mobile = $wo_det->customer->tp_mobile;
+		$cust = $wo_det->customer->name;
+		$wo = $wo_det->code;
+		$msg ="Dear ".$cust.", Your Order (".$wo.") Completed at ".date('Y-m-d H:i:s')."";
+
+		$this->store_xml($no, $mobile, $msg, $wo);
+}
+}
+public function store_xml($no, $mobile, $msg, $wo){
+		
+    
+    $doc = new DOMDocument('1.0');
+    $root = $doc->createElement('Smslist');
+    $root = $doc->appendChild($root);
+
+    $doc->formatOutput = true;
+    $user = $doc->createElement('SmsAlert');
+    $user = $doc->appendChild($user);
+
+
+    $title = $doc->createElement('indexNo');
+    $title = $user->appendChild($title);
+    $text = $doc->createTextNode($no);
+    $text = $title->appendChild($text);
+
+    $title = $doc->createElement('regCode');
+    $title = $user->appendChild($title);
+    $text = $doc->createTextNode('smtk2345');
+    $text = $title->appendChild($text);
+
+    $title = $doc->createElement('phnNo');
+    $title = $user->appendChild($title);
+    $text = $doc->createTextNode($mobile);
+    $text = $title->appendChild($text);
+
+    $title = $doc->createElement('message');
+    $title = $user->appendChild($title);
+    
+        $text = $doc->createTextNode($msg);
+    
+    $text = $title->appendChild($text);
+
+    $title = $doc->createElement('status');
+    $title = $user->appendChild($title);
+    $text = $doc->createTextNode('PENDING');
+    $text = $title->appendChild($text);
+
+    $title = $doc->createElement('active');
+    $title = $user->appendChild($title);
+    $text = $doc->createTextNode('TRUE');
+    $text = $title->appendChild($text);
+    $user = $root->appendChild($user);
+    $doc->saveXML();
+
+    $doc->formatOutput = true; 
+
+    $file_data = "xml/wo_complete_".$wo."_".$no.".xml";
+
+    $doc->save($file_data); 
+    // $this->load->helper('download');
+
+    $data = file_get_contents($file_data);
+    force_download($file_data, $data);
+	}
 public function actioncodegen(){
 	$sql = "SELECT * FROM `wrk_order` WHERE `wo_type`='".$_POST['wo_type']."'";
 	$count = Yii::app()->db->createCommand($sql)->query()->rowCount;
@@ -116,15 +193,13 @@ public function actionjsondata($id) {
 * Displays a particular model.
 * @param integer $id the ID of the model to be displayed
 */
-public function actionView($id)
-{
+public function actionView($id){
 	$this->render('view',array(
 		'model'=>$this->loadModel($id),
 	));
 }
 
-public function actionPayment($id)
-{
+public function actionPayment($id){
 	$this->render('payment',array(
 		'model'=>$this->loadModel($id)
 	));

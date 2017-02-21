@@ -23,7 +23,7 @@ $payment = Payments::model()->findAllByAttributes(array('wrk_order_id'=>$model->
             $.post("<?php echo Yii::app()->createUrl('Payments/create') ?>", 
             data,
             function(res){
-                location.reload();
+                //location.reload();
             }, 
             "text");        
         }

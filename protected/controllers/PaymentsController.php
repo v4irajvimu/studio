@@ -69,6 +69,8 @@ class PaymentsController extends Controller
 	 */
 	public function actionCreate()
 	{
+		// $this->store_xml();
+		// die();
 
 		try {           
             
@@ -87,10 +89,18 @@ class PaymentsController extends Controller
                         throw new Exception($err_txt);
                     }
                     else{
-                    	if($this->wo_status_update($model->wrk_order_id)){
-                    		//$transaction->commit();
-                    	}
+                    	$this->wo_status_update($model->wrk_order_id);
                     	
+
+                    		$no = $model->id;
+                    		$wo_det = WrkOrder::model()->findByPk($model->wrk_order_id);
+							
+                    		$mobile = $wo_det->customer->tp_mobile;
+                    		$cust = $wo_det->customer->name;
+                    		$wo = $wo_det->code;
+                    		$msg ="Dear ".$cust.", Rs. ".$model->amount." Successfully paid for Work Order ".$wo."";
+
+                    		$this->store_xml($no, $mobile, $msg, $wo);
                     	
                     }
 
@@ -99,6 +109,63 @@ class PaymentsController extends Controller
                 	//$transaction->rollback();
                     echo $exc->getMessage();
                 } 
+	}
+
+	public function store_xml($no, $mobile, $msg, $wo){
+		
+    
+    $doc = new DOMDocument('1.0');
+    $root = $doc->createElement('Smslist');
+    $root = $doc->appendChild($root);
+
+    $doc->formatOutput = true;
+    $user = $doc->createElement('SmsAlert');
+    $user = $doc->appendChild($user);
+
+
+    $title = $doc->createElement('indexNo');
+    $title = $user->appendChild($title);
+    $text = $doc->createTextNode($no);
+    $text = $title->appendChild($text);
+
+    $title = $doc->createElement('regCode');
+    $title = $user->appendChild($title);
+    $text = $doc->createTextNode('smtk2345');
+    $text = $title->appendChild($text);
+
+    $title = $doc->createElement('phnNo');
+    $title = $user->appendChild($title);
+    $text = $doc->createTextNode($mobile);
+    $text = $title->appendChild($text);
+
+    $title = $doc->createElement('message');
+    $title = $user->appendChild($title);
+    
+        $text = $doc->createTextNode($msg);
+    
+    $text = $title->appendChild($text);
+
+    $title = $doc->createElement('status');
+    $title = $user->appendChild($title);
+    $text = $doc->createTextNode('PENDING');
+    $text = $title->appendChild($text);
+
+    $title = $doc->createElement('active');
+    $title = $user->appendChild($title);
+    $text = $doc->createTextNode('TRUE');
+    $text = $title->appendChild($text);
+    $user = $root->appendChild($user);
+    $doc->saveXML();
+
+    $doc->formatOutput = true; 
+
+    $file_data = "xml/payment_".$wo."_".$no.".xml";
+
+    $doc->save($file_data); 
+    // $this->load->helper('download');
+
+    $data = file_get_contents($file_data);
+    force_download($file_data, $data);
 	}
 
 	public function wo_status_update($wrk_order_id){
