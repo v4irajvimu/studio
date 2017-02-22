@@ -88,6 +88,8 @@ return array(
                     'mgr' => '1mm', // margin_right
                     'mgt' => '1mm', // margin_top
                     'mgb' => 2, // margin_bottom
+                    'unicode'     => true,
+                    'encoding'    => 'UTF-8',
                 /* 'defaultParams'     => array( // More info: http://mpdf1.com/manual/index.php?tid=184
                   'mode'              => '', //  This parameter specifies the mode of the new document.
                   'format'            => 'A4', // format A4, A5, ...

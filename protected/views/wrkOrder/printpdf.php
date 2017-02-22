@@ -1,156 +1,115 @@
 
 <?php
+$wo_det = WrkOrder::model()->findByPk($wo_id);
+$wo_items = $wo_det->wrkOrderHasItems;
+
+$sql="SELECT SUM(p.`amount`) AS paid, pt.`name` FROM `payments` p JOIN `payment_type` pt ON pt.`id`=p.`payment_type_id` WHERE p.online = '1' AND p.wrk_order_id = '$wo_id' GROUP BY p.`payment_type_id` ";
+$payments = Yii::app()->db->createCommand($sql)->queryAll();
+$tot = 0;
+$paid=0;
 ob_clean();
 $mPDF1 = Yii::app()->ePdf->mpdf('', array(180, 140), 0, 'Arial', 5, 5, 20, 4, 2, 2, 'P');
 
-
-$model = Appointment::model()->findByPk($appoinment_id);
-$prescription = Prescription::model()->findByAttributes(array('appointment_id'=>$appoinment_id));
-$pre_drugs = Yii::app()->db->createCommand("SELECT * FROM prescribed_drugs WHERE prescription_id ='".$prescription->id."'")->queryAll();
-//$pre_drugs = PrescribedDrugs::model()->findByAttributes(array('prescription_id'=>$prescription->id));
-$payment = Payment::model()->findByAttributes(array('appointment_id'=>$appoinment_id));
     ob_start();?>
+    <table style="width:500px;  text-align: center;">
+    <tr>
+        <td colspan="3" style="font-weight:bold; font-size:20px;">
+            MANGALAA STUDIO & BEAUTY SALON
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            Dandugamma Junction, Sevanagala.
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" style="background-color:orange; color:white;">
+             +94717502687 , +94772995390 , +94712923500
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+             www.facebook.com/mangalastudio <br> mangalaastudio@hotmail.com
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="width:70%; text-align:left;">
+             <strong>Name: <?=$wo_det->customer->name?></strong> 
+        </td>
+        <td style="width:30%; text-align:right;">
+             <strong>Date: <?=date('Y-m-d')?></strong>
+        </td>
+    </tr>
+    <tr style="background-color:orange; color:white; ">
+        <td style="width:10%; font-weight:bold; border: 1px solid black;">Qty.</td>
+        <td style="width:70%; font-weight:bold; border: 1px solid black;">Description</td>
+        <td style="width:20%; font-weight:bold; border: 1px solid black;">Amount (LKR)</td>
+    </tr>
+    <?php
+    foreach ($wo_items as $value) {
+        $tot += floatval($value->amount);
+        ?>
+        <tr style="border: 1px solid black;">
+            <td style="width:10%;  border: 1px solid black;"><?=$value->qty?></td>
+            <td style="width:70%;  border: 1px solid black;text-align:left;"><?=$value->name?></td>
+            <td style="width:20%;  border: 1px solid black; text-align:left;"><?=$value->amount?></td>
+        </tr>
+        <?php
+    }
+    ?>
+        <tr style="border: 1px solid black;">
+            <td style="width:10%;  border: 1px solid black;"> </td>
+            <td style="width:70%;  border: 1px solid black;text-align:right; font-weight:bold;"> Total </td>
+            <td style="width:20%;  border: 1px solid black; text-align:right;font-weight:bold;"><?=$tot?></td>
+        </tr>
+    <?php
 
-<div class="row">
-    <h2>
-        Appointment : <?= $model->id ?> | <?= $model->name ?>
-    </h2>
-</div>
-<?php
-//print_r();
+    if(count($payments) >0){
+        foreach ($payments as $value) {
+            $paid += floatval($value['paid']);
+            ?>
+            <tr style="border: 1px solid black;">
+                <td style="width:10%;  border: 1px solid black;"> </td>
+                <td style="width:70%;  border: 1px solid black; text-align:left;"><?=$value['name']?></td>
+                <td style="width:20%;  border: 1px solid black;text-align:left;">(<?=$value['paid']?>)</td>
+            </tr>
+            <?php
+        }
 
-?>
-    <div class="panel-group">
-   <div class="panel panel-success">
-        <div class="panel-heading">Prescription</div>
-        <div class="panel-body">
-            <div class="row">
-            <div class="col-sm-5">
-                <label>Appointment Date : </label> <strong><?= $model->eff_date ?></strong>
-                
-            </div>
-            <div class="col-sm-5">
-                <label>Next Date : </label><strong><?= $prescription->next_date ?></strong>
-                
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-10">
-                <label>Diagnosis : </label><strong><?= $prescription->diagnosis ?></strong>
-                
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-10">
-                <label>Details : </label><strong><?= $prescription->description ?></strong>
-                
-            </div>
-        </div>
-        </div>
-    </div>
-        <hr>
-    <div class="panel panel-success">
-        <div class="panel-heading">Prescription Drugs</div>
-        <div class="panel-body">
-            <div class="row">
-                <style>
-                    table, th, td {
-    border: 1px solid black;
-}
-                </style>
-            <table class="table table-striped" >
-                <thead>
-                    <tr>
-                        <th>Drug</th>
-                        <th>Dosage</th>
-                        <th>Frequency</th>
-                        <th>Amount</th>
-                        <th>Cost</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                    <?php
-//                    var_dump($pre_drugs);
-//                      die();   
-                    foreach ($pre_drugs as $value) {
-                        ?>
-                    <tr>
-                            <td>
-                                <strong>
-                                    <?php 
-                                    $dr = Drug::model()->findByPk($value['drug_id']);
-                                    echo $dr->name;
-                                        ?>
-                                </strong>
-                            </td>
-                            <td>
-                                <strong><?= $value['dosage_new'] ?></strong>
-                                </td>
-                            <td><strong><?= $value['frequency'] ?></strong>
-                                </td>
-                                <td>
-                                <strong><?= $value['dosage'] ?></strong>
-                                </td>
-                            <td>
+        ?>
+            <tr style="border: 1px solid black;">
+                <td style="width:10%;  border: 1px solid black;"> </td>
+                <td style="width:70%;  border: 1px solid black;text-align:right; font-weight:bold;">Total paid</td>
+                <td style="width:20%;  border: 1px solid black;text-align:right; font-weight:bold;">(<?=$paid?>)</td>
+            </tr>
+        <?php
+    }
+    ?>
 
-                                <strong><?= $value['amount'] ?></strong>
-                                </td>
-                        </tr>
-                    <?php
-                    }
-                    ?>
-                    
-                </tbody>
-            </table>
-        </div>
-        </div>
-    </div>
-        <hr>
-    <div class="panel panel-success">
-        <div class="panel-heading">Make Payment</div>
-        <div class="panel-body">
-            <div class="row">
-            <div class="col-sm-5">
-                <label>Total Bill : </label>
-                <strong><?=$payment->total; ?></strong>(Drugs + Service Charge)
-                
+    <tr>
+        <td colspan="2" style="width:60%; text-align:left; background-color:orange; color:white;">
+             Days
+        </td>
+        <td style="width:40%; text-align:right;font-weight:bold;">
+             Balance : <?=number_format(($tot - $paid),2)?>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="width:50%; text-align:left;">
+             <strong>Membership No.: <?=$wo_det->customer->code?></strong> 
+        </td>
+        <td style="width:50%; text-align:right;">
+             <strong>Deliver Date: <?=$wo_det->delivery_date?></strong> 
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" style="font-weight:bold; font-size:10px; color:orange;">
+             * Avoid Responsibility Bills after 3 Months.   <br>
+             * Non Refundable. 
+        </td>
+    </tr>
+</table>
 
-            </div>
-                <div class="col-sm-5">
-                <label>Paid Amount : </label>
-                <strong><?=$payment->paid; ?></strong>
-                
-
-            </div>
-            <div class="col-sm-5">
-                <label>Balance : </label>
-                <strong><?=$payment->balance; ?></strong>
-                
-
-            </div>
-            <div class="col-sm-5">
-                <label>Date : </label>
-                <strong><?=$payment->eff_date; ?></strong>
-                
-
-            </div>
-            <div class="col-sm-10">
-                <label>Remark : </label>
-                <strong><?=$payment->paid_for; ?></strong>
-
-            </div>
-        </div>
-            <br>
-            <div class="row btn-row">
-                        <div class="col-sm-2">
-                            
-                        </div>
-                        
-                    </div>
-        </div>
-    </div>
-</div>
 <?php
    
     $outputImages = ob_get_contents();

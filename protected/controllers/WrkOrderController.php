@@ -47,7 +47,7 @@ array('deny',  // deny all users
  public function actionPrint($id)
 	{
 		$this->renderPartial('printpdf', array(
-                                    'appoinment_id' => $id,
+                                    'wo_id' => $id,
                                     ));
 	}
 public function actionworkdone(){

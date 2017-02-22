@@ -24,6 +24,8 @@ $payment = Payments::model()->findAllByAttributes(array('wrk_order_id'=>$model->
             data,
             function(res){
                 //location.reload();
+                $("#bill_print")[0].click();
+                location.reload();
             }, 
             "text");        
         }
@@ -90,7 +92,7 @@ $payment = Payments::model()->findAllByAttributes(array('wrk_order_id'=>$model->
  </div>
  <div class="col-sm-5">
   <div class="row">
-    <a href="" style="text-decoration:none;">
+    <a id="bill_print" target="_blank" href="<?php echo Yii::app()->createUrl("wrkOrder") ?>/print/<?php echo $model->id; ?>" style="text-decoration:none;">
         <h1 class="text-center"><span class="label label-primary glyphicon glyphicon-print">  PRINT BILL</span></h1>
     </a>
    
