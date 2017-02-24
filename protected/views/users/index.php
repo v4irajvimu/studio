@@ -61,6 +61,19 @@
                             <input type="password" id="password" name="password" class="form-control "  required />
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <label>User Level: </label>
+                            <select type="text" id="user_levels_id" name="user_levels_id" class="form-control"  required >
+                                <?php
+                                $usr_levels = UserLevels::model()->findAll();
+                                foreach ($usr_levels as  $value) {
+                                    echo "<option value='".$value->id."'>".$value->name."</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
                     <div class="row btn-row">
                         <div class="col-sm-16">
                             <button id="Users-submitbtn" class="btn btn-default">Create</button>

@@ -107,11 +107,12 @@ class UsersController extends Controller
             try {           
             
                     $model=$this->loadModel($id);
-
+                    $old_pw = $model->password;
                     $model->attributes = $_POST;
-                    if($model->password != $_POST['password']){
-                        $_POST['password'] = md5($_POST['password']);
+                    if($old_pw != $_POST['password']){
+                        $model->password  = md5($_POST['password']);
                     }
+
                     if (!$model->save()) {
                     
                         $er = $model->getErrors();

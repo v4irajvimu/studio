@@ -13492,3 +13492,6 @@ REQUEST_URI=/studio/
 in C:\xampp\htdocs\studio\themes\green\views\site\index.php (47)
 in C:\xampp\htdocs\studio\protected\controllers\SiteController.php (30)
 in C:\xampp\htdocs\studio\index.php (19)
+2017/02/24 03:45:25 [warning] [application] Failed to set unsafe attribute "pkg_feature" of "Package".
+in C:\xampp\htdocs\studio\protected\controllers\PackageController.php (78)
+in C:\xampp\htdocs\studio\index.php (19)
