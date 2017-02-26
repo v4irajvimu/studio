@@ -1,4 +1,32 @@
+<?php
+$sql_stock ="SELECT SUM(IFNULL(s.qty_in,0) - IFNULL (s.qty_out,0)) AS qty, i.`name` FROM `stock` s JOIN items i ON i.id=s.`items_id` GROUP BY `items_id` ";
 
+$stock_det = Yii::app()->db->createCommand($sql_stock)->queryAll();
+$categories ="[";
+$data="[";
+foreach ($stock_det as $value) {
+    $categories .="'".$value['name']."',";
+    $data .=$value['qty'].",";
+}
+
+$categories = rtrim($categories,",")."]";
+$data = rtrim($data,',')."]";
+
+// Toral Sales
+
+$sql_sales = "SELECT SUM(IFNULL(total,0)) AS amount, wo_type FROM `wrk_order` GROUP BY wo_type";
+$sales_det = Yii::app()->db->createCommand($sql_sales)->queryAll();
+
+$sales_data ="[
+            ['Cash', 8],
+            ['Credit', 3]
+            ]";
+$sales_data ="[";
+foreach ($sales_det as $value) {
+    $sales_data.="['".$value['wo_type']."', ".$value['amount']."],";
+}
+$sales_data = rtrim($sales_data,",")."]";
+?>
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -24,7 +52,7 @@ $(document).ready(function(){
             }
         },
         xAxis: {
-            categories: Highcharts.getOptions().lang.shortMonths
+            categories: <?=$categories?>
         },
         yAxis: {
             title: {
@@ -33,7 +61,7 @@ $(document).ready(function(){
         },
         series: [{
             name: 'Sales',
-            data: [2, 3, null, 4, 0, 5, 1, 4, 6, 3]
+            data: <?=$data?>
         }],
         credits: {
             enabled: false
@@ -64,10 +92,7 @@ $(document).ready(function(){
         },
         series: [{
             name: 'Sales Type',
-            data: [
-            ['Cash', 8],
-            ['Credit', 3]
-            ]
+            data: <?=$sales_data?>
         }],
         credits: {
             enabled: false
