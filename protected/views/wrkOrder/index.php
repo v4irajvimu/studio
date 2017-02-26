@@ -182,7 +182,7 @@ function cal_grand_total(){
   if(radio.val() == '1'){
     var percentage = parseFloat($("#discount_percentage").val());
     discount = grandTot  * (((isNaN(percentage))?0:parseFloat(percentage))/100);
-    $("#discount").val(discount);
+    $("#discount").val(parseFloat(discount).toFixed(2));
   }
   else{
     discount = parseFloat(($("#discount").val() !== '')?$("#discount").val():0);
@@ -190,7 +190,7 @@ function cal_grand_total(){
 
   grandTot -= discount;
 
-  $("#total").val(grandTot);
+  $("#total").val(parseFloat(grandTot).toFixed(2));
 }
 
 function codeGen(wo_type) {

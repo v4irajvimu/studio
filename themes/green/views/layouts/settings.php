@@ -19,6 +19,7 @@
              <h3><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/icons/trans.png" width="38px" /> Transactions</h3>
             <ul>
                 <li><a id="wrkOrder"  href="<?php echo Yii::app()->createUrl("wrkOrder"); ?>">Work Order</a></li>
+                <li><a id="reservation"  href="<?php echo Yii::app()->createUrl("reservation"); ?>">Reservation</a></li>
             </ul>
         </div>
         <div class="side_nav">

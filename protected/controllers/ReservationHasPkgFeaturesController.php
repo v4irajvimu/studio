@@ -1,6 +1,6 @@
 <?php
 
-class UsersController extends Controller
+class ReservationHasPkgFeaturesController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -47,7 +47,7 @@ class UsersController extends Controller
         
         
         public function actionjsondata($id) {
-                $data = Users::model()->findByPk($id);
+                $data = ReservationHasPkgFeatures::model()->findByPk($id);
                 $output = CJSON::encode($data);
                 echo $output;
         }
@@ -71,14 +71,9 @@ class UsersController extends Controller
 	{
 		try {           
             
-                    $model = new Users;
+                    $model = new ReservationHasPkgFeatures;
 
                     $model->attributes = $_POST;
-                    $model->password = md5($_POST['password']);
-                    $model->created = date('Y-m-d');
-                    $model->last_logged = date('Y-m-d');
-                    $model->online = 1;
-                    $model->company_id = 1;
 
                     if (!$model->save()) {
                     
@@ -107,11 +102,8 @@ class UsersController extends Controller
             try {           
             
                     $model=$this->loadModel($id);
-                    $old_pw = $model->password;
+
                     $model->attributes = $_POST;
-                    if($old_pw != $_POST['password']){
-                        $model->password  = md5($_POST['password']);
-                    }
 
                     if (!$model->save()) {
                     
@@ -173,7 +165,7 @@ class UsersController extends Controller
                 }
                 
                 
-                $sql = "SELECT * FROM users WHERE online = 1 $searchtxt ORDER BY name ASC ";                
+                $sql = "SELECT * FROM reservation_has_pkg_features WHERE online = 1 $searchtxt ORDER BY name ASC ";                
                 $count = Yii::app()->db->createCommand($sql)->query()->rowCount;
                 $dataProvider = new CSqlDataProvider($sql, array(
                     'totalItemCount' => $count,
@@ -193,10 +185,10 @@ class UsersController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Users('search');
+		$model=new ReservationHasPkgFeatures('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Users']))
-			$model->attributes=$_GET['Users'];
+		if(isset($_GET['ReservationHasPkgFeatures']))
+			$model->attributes=$_GET['ReservationHasPkgFeatures'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -207,12 +199,12 @@ class UsersController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Users the loaded model
+	 * @return ReservationHasPkgFeatures the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Users::model()->findByPk($id);
+		$model=ReservationHasPkgFeatures::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -220,11 +212,11 @@ class UsersController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Users $model the model to be validated
+	 * @param ReservationHasPkgFeatures $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='users-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='reservation-has-pkg-features-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

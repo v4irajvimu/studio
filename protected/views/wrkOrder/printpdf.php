@@ -2,6 +2,7 @@
 <?php
 $wo_det = WrkOrder::model()->findByPk($wo_id);
 $wo_items = $wo_det->wrkOrderHasItems;
+$discount = $wo_det->discount;
 
 $sql="SELECT SUM(p.`amount`) AS paid, pt.`name` FROM `payments` p JOIN `payment_type` pt ON pt.`id`=p.`payment_type_id` WHERE p.online = '1' AND p.wrk_order_id = '$wo_id' GROUP BY p.`payment_type_id` ";
 $payments = Yii::app()->db->createCommand($sql)->queryAll();
@@ -84,6 +85,16 @@ $mPDF1 = Yii::app()->ePdf->mpdf('', array(180, 140), 0, 'Arial', 5, 5, 20, 4, 2,
             </tr>
         <?php
     }
+
+    if($discount > 0 ){
+        ?>
+         <tr style="border: 1px solid black;">
+                <td style="width:10%;  border: 1px solid black;"> </td>
+                <td style="width:70%;  border: 1px solid black;text-align:right; font-weight:bold;">Discount</td>
+                <td style="width:20%;  border: 1px solid black;text-align:right; font-weight:bold;">(<?=$discount?>)</td>
+            </tr>
+        <?php
+    }
     ?>
 
     <tr>
@@ -91,7 +102,7 @@ $mPDF1 = Yii::app()->ePdf->mpdf('', array(180, 140), 0, 'Arial', 5, 5, 20, 4, 2,
              Days
         </td>
         <td style="width:40%; text-align:right;font-weight:bold;">
-             Balance : <?=number_format(($tot - $paid),2)?>
+             Balance : <?=number_format(($tot - $paid -$discount),2)?>
         </td>
     </tr>
     <tr>

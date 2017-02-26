@@ -17,6 +17,7 @@
  * @property string $updated
  * @property integer $visits
  * @property string $code
+ * @property string $password
  *
  * The followings are the available model relations:
  * @property WrkOrder[] $wrkOrders
@@ -46,10 +47,11 @@ class Customer extends CActiveRecord
 			array('nic', 'length', 'max'=>20),
 			array('address', 'length', 'max'=>255),
 			array('gender', 'length', 'max'=>6),
+			array('password', 'length', 'max'=>200),
 			array('created, updated', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, email, tp_mobile, tp_fixed, nic, address, gender, online, created, updated, visits, code', 'safe', 'on'=>'search'),
+			array('id, name, email, tp_mobile, tp_fixed, nic, address, gender, online, created, updated, visits, code, password', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -84,6 +86,7 @@ class Customer extends CActiveRecord
 			'updated' => 'Updated',
 			'visits' => 'Visits',
 			'code' => 'Code',
+			'password' => 'Password',
 		);
 	}
 
@@ -118,6 +121,7 @@ class Customer extends CActiveRecord
 		$criteria->compare('updated',$this->updated,true);
 		$criteria->compare('visits',$this->visits);
 		$criteria->compare('code',$this->code,true);
+		$criteria->compare('password',$this->password,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

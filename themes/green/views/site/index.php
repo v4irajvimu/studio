@@ -88,7 +88,7 @@ $(document).ready(function(){
                         <a id="wrkOrder"  href="<?php echo Yii::app()->createUrl("wrkOrder"); ?>">
                             <div class="link-box text-center">
                                 <div style="margin-top:20px;">
-                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/icons/trans.png" width="50px" /> WORK ORDER
+                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/icons/trans.png" width="50px" /><br> WORK ORDER.
                                 </div>
                             </div>
                             
@@ -102,7 +102,7 @@ $(document).ready(function(){
                         <a id="stock" href="<?php echo Yii::app()->createUrl("stock"); ?>">
                             <div class="link-box text-center">
                                 <div style="margin-top:20px;">
-                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/icons/stock.png" width="50px" /> STOCK 
+                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/icons/stock.png" width="50px" /> <br>STOCK.
                                 </div>
                             </div>
                             
@@ -116,7 +116,7 @@ $(document).ready(function(){
                         <a id="stock" href="<?php echo Yii::app()->createUrl("customer"); ?>">
                             <div class="link-box text-center">
                                 <div style="margin-top:20px;">
-                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/icons/user.png" width="50px" /> CUSTOMER 
+                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/icons/user.png" width="50px" /><br> CUSTOMER.
                                 </div>
                             </div>
                             
@@ -127,10 +127,10 @@ $(document).ready(function(){
             <div class="row">
                 <div class="main-tile">
                     <div class="title-midle">
-                        <a id="stock" href="<?php echo Yii::app()->createUrl("items"); ?>">
+                        <a id="stock" href="<?php echo Yii::app()->createUrl("reservation"); ?>">
                             <div class="link-box text-center">
                                 <div style="margin-top:20px;">
-                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/icons/magazine.png" width="50px" /> CUSTOMER 
+                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/icons/magazine.png" width="50px" /><br> RESERVATIONS. 
                                 </div>
                             </div>
                             
